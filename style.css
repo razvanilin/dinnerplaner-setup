@@ -1,6 +1,6 @@
-
-
-
+.padding {
+    padding: 30px 20px;
+}
 .spacing-large {
     height: 120px;
 }
@@ -15,4 +15,8 @@
 }
 .spacing-x-small {
     height: 15px;
+}
+
+.h-spacing {
+    width: 30px;
 }
