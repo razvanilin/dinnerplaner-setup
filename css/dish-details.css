@@ -1,0 +1,28 @@
+
+.div-preparation {
+    padding: 15px;
+}
+
+.h3-height {
+    height: 40px;
+}
+
+.ingredients-height {
+    height: calc(100% - 85px)
+}
+
+.ingredients-color {
+    background-color: rgb(253, 229, 153);
+    box-shadow: 2px 2px;
+    border: 1px solid black;
+}
+
+.btn-add-menu {
+    position: absolute;
+    bottom: 15px;
+
+}
+
+.small-padding-box {
+    padding: 15px;
+}
