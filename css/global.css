@@ -8,6 +8,9 @@
     height: calc(100vh - 258px);
     overflow-y: scroll;
 }
+.item-box img {
+    width: 100%;
+}
 
 .btn-primary-color {
     background-color: rgb(244, 178, 107);
