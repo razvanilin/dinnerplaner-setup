@@ -18,6 +18,7 @@
     border: none;
 }
 
+
 .full-vh {
     height: calc(100vh - 100px);
 }
@@ -57,4 +58,11 @@
 }
 .h-spacing-small {
     width: 15px;
+}
+
+.line {
+    height: 3px;
+    border-top: 1px solid gray;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
