@@ -4,6 +4,11 @@
     /* border-bottom: 2px solid rgb(200, 200, 200); */
     background-color: rgb(229, 229, 229);
 }
+.scroll-view {
+    height: calc(100vh - 258px);
+    overflow-y: scroll;
+}
+
 .btn-primary-color {
     background-color: rgb(244, 178, 107);
     box-shadow: 2px 2px;
@@ -16,8 +21,9 @@
 .p-max-width {
     max-width: 600px;
 }
+
 .padding {
-    padding: 30px 20px;
+    padding: 30px;
 }
 
 .spacing-large {
@@ -36,6 +42,16 @@
     height: 15px;
 }
 
+.border-bottom {
+    border-bottom: 1px solid #e7e7e7;
+}
+.border-right {
+    border-right: 1px solid #e7e7e7;
+}
+
 .h-spacing {
     width: 30px;
+}
+.h-spacing-small {
+    width: 15px;
 }

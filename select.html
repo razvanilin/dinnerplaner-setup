@@ -10,39 +10,94 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
 		 crossorigin="anonymous">
 		 
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="css/global.css">
+		<link rel="stylesheet" href="css/select-view.css">
 
   </head>
   <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12 col-md-4">
-				<div>
-					Number of guests: <span id="numberOfGuests"></span>
+		<div class="header d-flex align-items-center justify-content-center">
+			<h1>Dinner Planner</h1>
+		</div>
+		<div class="container">
+			<div class="row no-gutters">
+				<div class="col-sm-12 col-md-4">
+					<div class="border-right full-vh">
+						<div class="padding">
+							<h2>My dinner</h2>
+							<div class="d-flex align-items-center">
+								People
+								<div class="h-spacing-small"></div>
+								<input type="number" name="" id="" value="3">
+							</div>
+						</div>
+						<div class="label d-flex justify-content-between">
+							<span>Dish name</span>
+							<span>Cost</span>
+						</div>
+						<div class="padding">
+							<div class="text-right text-danger">SEK 0.00</div>
+							<div class="spacing"></div>
+							<button class="btn btn-block btn-large btn-primary-color" disabled>Confirm Dinner</button>
+						</div>
+					</div>
 				</div>
-				<div>
-					<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-					<button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-				</div>
-			</div>
-			<div class="col-sm-12 col-md-8">
-				<div class="padding">
-					<h2>Find a dish</h2>
-					<div class="spacing-x-small"></div>
-					<div class="d-flex">
-						<input type="text" name="" id="" placeholder="Enter key words">
-						<div class="h-spacing"></div>
-						<select name="" id="">
-							<option value="Main Course">Main Course</option>
-							<option value="Side Dish">Side Dish</option>
-							<option value="Dessert">Dessert</option>
-							<option value="Appetizer">Appetizer</option>
-						</select>
+				<div class="col-sm-12 col-md-8">
+					<div class="padding border-bottom">
+						<h2>Find a dish</h2>
+						<div class="spacing-x-small"></div>
+						<div class="d-flex align-items-center">
+							<input type="text" name="" id="" placeholder="Enter key words">
+							<div class="h-spacing"></div>
+							<select name="" id="">
+								<option value="Main Course">Main Course</option>
+								<option value="Side Dish">Side Dish</option>
+								<option value="Dessert">Dessert</option>
+								<option value="Appetizer">Appetizer</option>
+							</select>
+							<div class="h-spacing"></div>
+							<button class="btn btn-medium btn-primary-color">Search</button>
+						</div>
+					</div>
+					<div class="scroll-view padding">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pellentesque venenatis augue, a tristique odio varius sit
+						amet. Donec scelerisque tellus vel sollicitudin luctus. Aliquam posuere, lectus ut malesuada sagittis, justo lectus
+						bibendum enim, ac pharetra orci turpis sed tortor. Nullam bibendum vitae massa condimentum tincidunt. Aliquam vehicula
+						mollis odio, vel iaculis mi viverra sed. Aliquam et finibus sapien. Sed id leo vitae turpis fermentum semper.
+						Suspendisse potenti. Curabitur rutrum molestie turpis ac tincidunt. Nullam et massa urna. Duis volutpat nulla nulla,
+						non bibendum lacus sodales at.
+						
+						Maecenas quis bibendum nulla, nec ultrices diam. Maecenas mauris orci, posuere in hendrerit at, pulvinar a tortor.
+						Aenean euismod, dolor id facilisis laoreet, purus ex rutrum justo, eu facilisis lacus ipsum at enim. Aliquam tempus
+						vulputate lectus, a sollicitudin nisl luctus vel. Cras purus lectus, accumsan id augue nec, malesuada hendrerit mauris.
+						Donec vel neque quis nibh eleifend condimentum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur
+						ridiculus mus. Quisque dignissim lobortis felis ac dapibus. Pellentesque eu magna bibendum, rhoncus purus sed, porta
+						velit. Suspendisse volutpat libero at commodo molestie. Morbi eros nisi, volutpat a neque vitae, imperdiet tempor ante.
+						Proin non sodales nisl.
+						
+						Praesent fermentum metus massa, sed ultrices augue sollicitudin id. In eget rutrum est. Pellentesque nisl sem,
+						facilisis a massa eu, commodo mattis arcu. Quisque egestas eget mauris non molestie. Maecenas sodales, nisl id suscipit
+						aliquam, est massa elementum turpis, vel efficitur lorem nisl a ligula. Morbi ac tellus posuere mauris commodo maximus.
+						Donec eget nunc sit amet est ultricies ultricies et vitae massa. Mauris porta vel tortor eget euismod. Duis egestas
+						nulla congue purus consequat ullamcorper eget sit amet lectus. Nulla congue neque quis sapien vulputate, eget
+						scelerisque velit tempor. Maecenas iaculis fringilla mauris, ac porttitor nunc rutrum sit amet.
+						
+						Nunc malesuada vel orci nec facilisis. Maecenas id congue odio. Donec eros dui, maximus a euismod et, varius eu nulla.
+						Nunc ac odio pellentesque mi consequat fermentum. Curabitur sed porttitor dolor, sit amet fringilla massa. Curabitur
+						iaculis metus id dui tempus blandit. Mauris hendrerit est lorem, ut consequat massa ornare eget. Vivamus fermentum orci
+						et placerat scelerisque.
+						
+						Praesent diam nunc, convallis a mollis ornare, ultrices non nisl. Sed vel massa ut dui porttitor consequat at ac ex.
+						Nunc condimentum eros eget ex viverra, nec consectetur nulla pellentesque. Nullam felis eros, consectetur ac efficitur
+						in, volutpat non sem. Morbi in ipsum sed orci malesuada tincidunt eget nec libero. Proin ultrices accumsan lorem.
+						Praesent nec nunc tellus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis
+						et faucibus purus, sit amet vehicula nulla. Vivamus sed est elementum, molestie lacus eget, finibus sem. Pellentesque
+						eget purus lectus. Nullam tristique sollicitudin imperdiet. Pellentesque at urna sed tortor tempor ultrices a tempor
+						sem. Praesent aliquam magna non felis scelerisque mollis. Fusce tellus justo, porta sit amet dui eu, tristique
+						malesuada nisl.
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
