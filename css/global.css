@@ -46,6 +46,10 @@
 .border-bottom {
     border-bottom: 1px solid #e7e7e7;
 }
+
+.border-bottom-dark {
+    border-bottom: 3px solid gray;
+}
 .border-right {
     border-right: 1px solid #e7e7e7;
 }
