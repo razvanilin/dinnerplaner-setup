@@ -8,13 +8,37 @@
     /* border-bottom: 2px solid rgb(200, 200, 200); */
     background-color: rgb(229, 229, 229);
 }
+.header.sub {
+    height: 80px;
+    background-color: #fff;
+}
+.mobile-menu {
+    height: 60px;
+}
+.mobile-menu h2 {
+    font-size: 22px;
+    margin-bottom: 0px;
+}
 .scroll-view {
     height: calc(100vh - 258px);
     overflow-y: scroll;
 }
+
+.label {
+    background-color: #e7e7e7;
+    padding: 10px 30px;
+}
+.list-item {
+    background-color: #e7e7e7;
+    padding: 10px;
+}
+.item-box {
+    height: 100%;
+}
 .item-box img {
     width: 100%;
 }
+
 
 .btn-primary-color {
     background-color: rgb(244, 178, 107);
@@ -32,6 +56,12 @@
 
 .padding {
     padding: 30px;
+}
+.padding-left {
+    padding-left: 30px;
+}
+.no-padding-bottom {
+    padding-bottom: 0px;
 }
 
 .spacing-large {
@@ -59,6 +89,9 @@
 }
 .border-right {
     border-right: 1px solid #e7e7e7;
+}
+.border-left {
+    border-left: 1px solid #e7e7e7;
 }
 
 .h-spacing {
