@@ -1,0 +1,21 @@
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+    font-size: 22px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .header {
+        height: 80px;
+    }
+    .scroll-view {
+        height: auto;
+    }
+    .padding {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
