@@ -17,7 +17,7 @@
 	<link rel="stylesheet" href="css/mobile.css">
 
   </head>
-  <body>
+  <body id="selectView">
 		<div class="header d-flex align-items-center justify-content-center">
 			<h1>Dinner Planner</h1>
 		</div>
@@ -37,7 +37,7 @@
 					<div class="d-flex align-items-center">
 						People
 						<div class="h-spacing-small"></div>
-						<input type="number" name="" id="" value="3">
+						<input class="numberOfGuests" type="number" name="numberOfGuests" value="">
 					</div>
 					<div class="spacing-x-small"></div>
 				</div>
@@ -58,14 +58,14 @@
 		</div>
 		<div class="container">
 			<div class="row no-gutters">
-				<div class="col-sm-12 col-md-4 d-none d-md-block">
+				<div class="col-sm-12 col-md-3 d-none d-md-block">
 					<div class="border-right full-vh">
 						<div class="padding">
 							<h2>My dinner</h2>
 							<div class="d-flex align-items-center">
 								People
 								<div class="h-spacing-small"></div>
-								<input type="number" name="" id="" value="3">
+								<input class="numberOfGuests" type="number" name="numberOfGuests" value="">
 							</div>
 						</div>
 						<div class="label d-flex justify-content-between">
@@ -81,11 +81,11 @@
 						<div class="padding">
 							<div class="text-right text-danger">SEK 77.20</div>
 							<div class="spacing"></div>
-							<button class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</button>
+							<a href="overview.html" class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-sm-12 col-md-8">
+				<div class="col-sm-12 col-md-9">
 					<div class="padding border-bottom">
 						<h2>Add another one</h2>
 						<div class="spacing-x-small"></div>
@@ -108,31 +108,7 @@
 					<div class="scroll-view">
 						<div class="spacing-small"></div>
 						<div class="container">
-							<div class="row justify-content-center">
-								<div class="col-md-4 col-lg-3 item-column">
-									<div class="item-box">
-										<img src="images/toast.jpg" alt="">
-										<div class="label text-center">Food</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-lg-3 item-column">
-									<div class="item-box">
-										<img src="images/toast.jpg" alt="">
-										<div class="label text-center">Food</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-lg-3 item-column">
-									<div class="item-box">
-										<img src="images/toast.jpg" alt="">
-										<div class="label text-center">Food</div>
-									</div>
-								</div>
-								<div class="col-md-4 col-lg-3 item-column">
-									<div class="item-box">
-										<img src="images/toast.jpg" alt="">
-										<div class="label text-center">Food</div>
-									</div>
-								</div>
+							<div class="row justify-content-center justify-content-md-start dishes">
 							</div>
 						</div>
 						<div class="spacing-small"></div>
@@ -149,7 +125,8 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/detailView.js"></script>
+	<script src="js/view/selectView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
   </body>
 </html>

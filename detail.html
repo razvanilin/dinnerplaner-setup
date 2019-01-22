@@ -19,7 +19,7 @@
 
 </head>
 
-<body>
+<body id="detailView">
 	<div class="header d-flex align-items-center justify-content-center">
 		<h1>Dinner Planner</h1>
 	</div>
@@ -39,7 +39,7 @@
 				<div class="d-flex align-items-center">
 					People
 					<div class="h-spacing-small"></div>
-					<input type="number" name="" id="" value="3">
+					<input class="numberOfGuests" type="number" name="numberOfGuests" value="">
 				</div>
 				<div class="spacing-x-small"></div>
 			</div>
@@ -60,14 +60,14 @@
 	</div>
 	<div class="container">
 		<div class="row no-gutters">
-			<div class="col-sm-12 col-md-4 d-none d-md-block">
+			<div class="col-sm-12 col-md-3 d-none d-md-block">
 				<div class="border-right full-vh">
 					<div class="padding">
 						<h2>My dinner</h2>
 						<div class="d-flex align-items-center">
 							People
 							<div class="h-spacing-small"></div>
-							<input type="number" name="" id="" value="3">
+							<input class="numberOfGuests" type="number" name="numberOfGuests" value="">
 						</div>
 					</div>
 					<div class="label d-flex justify-content-between">
@@ -81,7 +81,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-sm-12 col-md-8">
+			<div class="col-sm-12 col-md-9">
 				<div class="container border-bottom">
 					<div class="spacing-small"></div>
 					<h2>Find a dish</h2>
@@ -151,7 +151,7 @@
 											<div class="col-2 text-right">SEK</div>
 										</div>
 									</div>
-									<a href="" class="btn btn-light btn-primary-color">
+									<a href="select-again.html" class="btn btn-light btn-primary-color">
 										Add to menu
 									</a>
 								</div>
@@ -196,7 +196,8 @@
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/selectView.js"></script>
+	<script src="js/view/detailView.js"></script>
 	<!-- TODO: Here you should include JS code for your other views -->
 </body>
 
