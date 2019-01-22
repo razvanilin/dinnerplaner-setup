@@ -1,3 +1,11 @@
+@media screen and (max-width: 991px) {
+    .item-box.border-left.padding-left {
+        border-left: 0px!important;
+        padding-left: 0px!important;
+        text-align: center;
+    }
+}
+
 @media screen and (max-width: 768px) {
     h1 {
         font-size: 28px;

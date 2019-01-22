@@ -22,8 +22,10 @@ h3 {
     background-color: rgb(229, 229, 229);
 }
 .header.sub {
-    height: 80px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     background-color: #fff;
+    height: auto;
 }
 .mobile-menu {
     height: 60px;
