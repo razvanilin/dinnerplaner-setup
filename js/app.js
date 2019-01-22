@@ -1,6 +1,10 @@
 $(function() {
 	//We instantiate our model
 	var model = new DinnerModel();
+	model.setNumberOfGuests(3);
+
+	model.addDishToMenu(1);
+	model.addDishToMenu(102);
 	
 	// And create the instance of ExampleView
 	var exampleView = new ExampleView($("#exampleView"));
