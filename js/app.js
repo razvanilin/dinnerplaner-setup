@@ -13,3 +13,7 @@ $(function() {
 	 */
 
 });
+
+$('.mobile-button').click(function() {
+	$('body').toggleClass('menu-open');
+})
