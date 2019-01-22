@@ -1,8 +1,8 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-	var numberOfGuests = 0
-	var menu = []
+	this.numberOfGuests = 0
+	this.menu = []
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -38,8 +38,10 @@ var DinnerModel = function() {
 		var ingredients = [];
 
 		this.menu.forEach(function (dish) {
-			ingredients.concat(dish.ingredients)
+			ingredients = ingredients.concat(dish.ingredients)
 		})
+
+		return ingredients;
 
 	}
 
@@ -47,11 +49,13 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
 		var price = 0;
-		this.menu.forEach(function(dish) {
-			dish.ingredients.forEach(function (ingredient) {
-				price += ingredient.price;
-			})
+
+		var allIngredients = this.getAllIngredients();
+
+		allIngredients.forEach(function (ingredient) {
+			price += ingredient.price;
 		})
+		
 		return price;
 	}
 
@@ -65,7 +69,7 @@ var DinnerModel = function() {
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		//TODO Lab 1
-		this.menu.filter(function(dish) {
+		return this.menu.filter(function(dish) {
 			return dish.id != id;
 		})
 	}
