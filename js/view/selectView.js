@@ -1,11 +1,11 @@
 var SelectView = function (container, model) {
-	var numberOfGuestsComponent = container.find(".numberOfGuests");
+	var numberOfGuestsInput = container.find(".numberOfGuestsInput");
 	var dishContainer = container.find(".dishes");
 
 	var numberOfGuests = model.getNumberOfGuests();
 	var dishElements = getDishElements(model);
 
-	numberOfGuestsComponent.val(numberOfGuests);
+	numberOfGuestsInput.val(numberOfGuests);
 	dishContainer.html(dishElements);
 }
 

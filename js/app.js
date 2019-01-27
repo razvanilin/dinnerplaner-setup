@@ -3,7 +3,6 @@ $(function() {
 	
 	var selectView = new SelectView($("#selectView"), model);
 	var detailView = new DetailView($("#detailView"), model);
-
 });
 
 $('.mobile-button').click(function() {
