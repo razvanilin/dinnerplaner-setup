@@ -3,10 +3,11 @@ $(function() {
 	model.addDishToMenu(1);
 	model.addDishToMenu(2);
 
-	//var homeView = new HomeView($("#page-content"));
+	var homeView = new HomeView($("#page-content"));
 	var mainView = new MainView($("#page-content"), model);
-	//homeView.render();
-	mainView.render();
+	var overviewView = new OverviewView($("#page-content"), model, true);
+
+	homeView.render();
 });
 
 $('.mobile-button').click(function() {

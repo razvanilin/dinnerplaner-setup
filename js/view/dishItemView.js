@@ -19,7 +19,7 @@ class DishItemView {
 		} else {
 			return /* template */ `
 				<div class="col-sm-6 col-md-4 item-column">
-					<a class="item-box" href="detail.html">
+					<a class="item-box" href="">
 						<img src="images/${this.image}" alt="">
 						<div class="label text-center">${this.name}</div>
 					</a>

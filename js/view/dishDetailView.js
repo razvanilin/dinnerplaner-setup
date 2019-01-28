@@ -32,7 +32,7 @@ class DishDetailView {
 											<div class="col-2 text-right">SEK</div>
 										</div>
 									</div>
-									<a href="select-again.html" class="btn btn-light btn-primary-color">
+									<a href="" class="btn btn-light btn-primary-color">
 										Add to menu
 									</a>
 								</div>

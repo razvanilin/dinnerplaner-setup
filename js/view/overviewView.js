@@ -1,4 +1,3 @@
-
 class OverviewView {
     constructor(container, model, isPrintView) {
         this.container = container;
@@ -31,7 +30,7 @@ class OverviewView {
     getDishesOnMenu() {
         var elements = "";
         this.model.getFullMenu().map((dish, index) => {
-            var dishItemView = new DishItemView(dish.image, dish.name, this.model.getDishPrice(dish.id));
+            var dishItemView = new DishItemView(dish.image, dish.name, this.model.getDishPrice(dish.id) * this.model.getNumberOfGuests());
             if (this.isPrintView) {
                 dishItemView = new DishPreparationView(dish);
             }
@@ -54,7 +53,7 @@ class OverviewView {
         <div class="col-md-12 col-lg-2 item-column ">
             <div class="item-box padding-left border-left d-flex flex-column justify-content-end">
                 <b>Total: </b>
-                <b class="text-danger">${this.model.getTotalMenuPrice()} SEK</b>
+                <b class="text-danger">${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</b>
             </div>
         </div>
         `
@@ -62,9 +61,9 @@ class OverviewView {
 
     getSpacing() {
         return /* template */`
-        <div class="spacing"></div>
+        <div class="spacing-small"></div>
         <hr>
-        <div class="spacing"></div>
+        <div class="spacing-small"></div>
         `
     }
 }

@@ -12,7 +12,8 @@ class MainView {
       <div class="container">
         <div class="row no-gutters">
           ${sidebarView.render()}
-          ${dishDetailView.render()}
+          ${dishSearchView.render()}
+          ${false ? dishDetailView.render() : ''}
         </div>
       </div>
     `;
