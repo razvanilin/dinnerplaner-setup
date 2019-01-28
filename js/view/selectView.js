@@ -20,7 +20,7 @@ var getDishElements = function(model) {
 				</a>
 			</div>
 		`);
-	});
+	});	
 	return elements;
 }
  
