@@ -62,9 +62,9 @@ class OverviewView {
 
     getSpacing() {
         return /* template */`
-        <div class="spacing"></div>
+        <div class="spacing-small"></div>
         <hr>
-        <div class="spacing"></div>
+        <div class="spacing-small"></div>
         `
     }
 }
