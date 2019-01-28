@@ -1,7 +1,7 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
-	this.numberOfGuests = 4;
+	this.numberOfGuests = 6;
 	this.menu = [];
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
@@ -42,6 +42,18 @@ var DinnerModel = function() {
 		})
 
 		return ingredients;
+	}
+
+	//Returns the price of the dish
+	this.getDishPrice = function (id) {
+		var dish = this.getDish(id);
+		var price = 0;
+
+		dish.ingredients.forEach(function (ingredient) {
+			price += ingredient.price;
+		})
+
+		return price;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
