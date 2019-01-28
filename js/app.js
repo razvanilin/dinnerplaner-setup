@@ -1,13 +1,12 @@
 $(function() {
 	var model = new DinnerModel();
+	model.addDishToMenu(1);
+	model.addDishToMenu(2);
+
 	//var homeView = new HomeView($("#page-content"));
 	var mainView = new MainView($("#page-content"), model);
-
+	//homeView.render();
 	mainView.render();
-
-
-	//var selectView = new SelectView($("#selectView"), model);
-	//var detailView = new DetailView($("#detailView"), model);
 });
 
 $('.mobile-button').click(function() {

@@ -18,13 +18,24 @@ class SidebarView {
 						<span>Dish name</span>
 						<span>Cost</span>
 					</div>
+					<div class="padding no-padding-bottom">
+						${this.renderListedItems()}
+					</div>
 					<div class="padding">
 						<div class="text-right text-danger">SEK 0.00</div>
 						<div class="spacing"></div>
-						<button class="btn btn-block btn-lg btn-primary-color" disabled>Confirm Dinner</button>
+						<button class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</button>
 					</div>
 				</div>
 			</div>
 		`;
+	}
+	renderListedItems() {
+		var listedItems = '';
+		this.model.getFullMenu().map((dish, index) => {
+			const listItem = new ListItemView(dish.name, dish.price);
+			listedItems = listedItems + listItem.render();
+		});
+		return listedItems;
 	}
 }

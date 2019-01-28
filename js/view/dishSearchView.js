@@ -7,7 +7,7 @@ class DishSearchView {
 			<div class="col-sm-12 col-md-9">
 				<div class="container border-bottom">
 					<div class="spacing-small"></div>
-					<h2>Find a dish</h2>
+					<h2>Find a dish Add another one</h2>
 					<div class="spacing-x-small"></div>
 					<div class="d-flex flex-column flex-md-row align-items-start align-items-md-center">
 						<input type="text" name="" id="" placeholder="Enter key words">
@@ -29,12 +29,20 @@ class DishSearchView {
 					<div class="spacing-small"></div>
 					<div class="container">
 						<div class="row justify-content-center justify-content-md-start dishes">
-							
+							${this.renderDishItems()}
 						</div>
 					</div>
 					<div class="spacing-small"></div>
 				</div>
 			</div>
 		`;
+	}
+	renderDishItems() {
+		var dishItems = '';
+		this.model.getAllDishes().map((dish, index) => {
+			const dishItem = new DishItemView(dish.image, dish.name);
+			dishItems = dishItems + dishItem.render();
+		});
+		return dishItems;
 	}
 }

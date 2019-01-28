@@ -71,6 +71,10 @@ a:hover {
 .list-item {
     background-color: #e7e7e7;
     padding: 10px;
+    margin-bottom: 10px;
+}
+.list-item:last-child {
+    margin-bottom: 0px;
 }
 .item-box {
     height: 100%;
