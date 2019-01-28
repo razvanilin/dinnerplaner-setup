@@ -1,15 +1,15 @@
 
 class OverviewView {
-    constructor(container, model) {
+    constructor(container, model, isPrintView) {
         this.container = container;
         this.model = model;
-
-        this.subheader = new SubHeaderOverview(model.getNumberOfGuests(), "");
+        this.isPrintView = isPrintView;
     }
 
     render() {
+        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests(), "");
         var content = /* template */ `
-        ${this.subheader.render()}
+        ${subheader.render()}
 
         <div class="spacing"></div>
         <div class="container">
@@ -17,21 +17,11 @@ class OverviewView {
 
                 ${this.getDishesOnMenu()}
 
-                <div class="col-md-12 col-lg-2 item-column ">
-				<div class="item-box padding-left border-left d-flex flex-column justify-content-end">
-					<b>Total: </b>
-					<b class="text-danger">${this.model.getTotalMenuPrice()} SEK</b>
-				</div>
-			</div>
+                ${!this.isPrintView ? this.getTotalPrice() : ''}
             </div>
-            <div class="spacing"></div>
-            <hr>
-            <div class="spacing"></div>
-            <div class="text-center">
-                <a href="" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
-            </div>
-            <div class="spacing"></div>
-
+            
+            ${!this.isPrintView ? this.getSpacing() : ""}
+            ${!this.isPrintView ? this.getToPrintBtn() : ""}
         </div>
         `
 
@@ -41,9 +31,40 @@ class OverviewView {
     getDishesOnMenu() {
         var elements = "";
         this.model.getFullMenu().map((dish, index) => {
-            const dishItemView = new DishItemView(dish.image, dish.name, this.model.getDishPrice(dish.id));
+            var dishItemView = new DishItemView(dish.image, dish.name, this.model.getDishPrice(dish.id));
+            if (this.isPrintView) {
+                dishItemView = new DishPreparationView(dish);
+            }
             elements = elements.concat(dishItemView.render());
         });
         return elements;
+    }
+
+    getToPrintBtn() {
+        return /* template */ `
+        <div class="text-center">
+            <a href="" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
+        </div>
+        <div class="spacing"></div>
+        `;
+    }
+
+    getTotalPrice() {
+        return /* template */`
+        <div class="col-md-12 col-lg-2 item-column ">
+            <div class="item-box padding-left border-left d-flex flex-column justify-content-end">
+                <b>Total: </b>
+                <b class="text-danger">${this.model.getTotalMenuPrice()} SEK</b>
+            </div>
+        </div>
+        `
+    }
+
+    getSpacing() {
+        return /* template */`
+        <div class="spacing"></div>
+        <hr>
+        <div class="spacing"></div>
+        `
     }
 }

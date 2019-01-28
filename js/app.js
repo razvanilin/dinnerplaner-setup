@@ -2,7 +2,7 @@ $(function() {
 	var model = new DinnerModel();
 	//var homeView = new HomeView($("#page-content"));
 	var mainView = new MainView($("#page-content"), model);
-	var overviewView = new OverviewView($("#page-content"), model);
+	var overviewView = new OverviewView($("#page-content"), model, true);
 
 	model.addDishToMenu(1);
 
