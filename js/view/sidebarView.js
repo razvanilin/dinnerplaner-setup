@@ -11,7 +11,7 @@ class SidebarView {
 						<div class="d-flex align-items-center">
 							People
 							<div class="h-spacing-small"></div>
-							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="">
+							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}">
 						</div>
 					</div>
 					<div class="label d-flex justify-content-between">
@@ -19,10 +19,10 @@ class SidebarView {
 						<span>Cost</span>
 					</div>
 					<div class="padding no-padding-bottom">
-						${this.renderListedItems()}
+						${this.renderListedItems() ? this.renderListedItems() : 'No added dishes'}
 					</div>
 					<div class="padding">
-						<div class="text-right text-danger">SEK 0.00</div>
+						<div class="text-right text-danger">Total ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</div>
 						<div class="spacing"></div>
 						<button class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</button>
 					</div>
@@ -33,7 +33,7 @@ class SidebarView {
 	renderListedItems() {
 		var listedItems = '';
 		this.model.getFullMenu().map((dish, index) => {
-			const listItem = new ListItemView(dish.name, dish.price);
+			const listItem = new ListItemView(dish.name, this.model.getDishPrice(dish.id), this.model.getNumberOfGuests());
 			listedItems = listedItems + listItem.render();
 		});
 		return listedItems;

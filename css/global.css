@@ -59,6 +59,10 @@ a:hover {
     height: calc(100vh - 258px);
     overflow-y: scroll;
 }
+.scroll-view {
+    height: calc(100vh - 100px);
+}
+
 
 .label {
     background-color: #e7e7e7;

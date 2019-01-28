@@ -7,7 +7,7 @@ class DishSearchView {
 			<div class="col-sm-12 col-md-9">
 				<div class="container border-bottom">
 					<div class="spacing-small"></div>
-					<h2>Find a dish Add another one</h2>
+					<h2>${!this.model.getFullMenu().length ? 'Find a dish' : 'Add another one'}</h2>
 					<div class="spacing-x-small"></div>
 					<div class="d-flex flex-column flex-md-row align-items-start align-items-md-center">
 						<input type="text" name="" id="" placeholder="Enter key words">
