@@ -27,11 +27,6 @@ class MainView {
       </div>
     `;
     this.container.html(content);
-
-    // Opening the mobile menu
-    $('.mobile-button').click(function () {
-      $('body').toggleClass('menu-open');
-    })
   }
 
   afterRender() {
@@ -40,21 +35,4 @@ class MainView {
     this.childContainers.dishSearch = this.container.find("#dishSearchView");
     this.childContainers.dishDetail = this.container.find("#dishDetailView");
   }
-
-  /*
-
-  renderDishSearchView() {
-    var element = this.container.find("#dishSearchView");
-    var dishSearchView = new DishSearchView(this.model);
-    element.html(dishSearchView.render());
-  }
-
-  renderDishDetailView(dishId) {
-    var element = this.container.find("#dishDetailView");
-    var dishDetailView = new DishDetailView(this.container, this.model, this.model.getDish(dishId));
-    element.html(dishDetailView.render());
-
-    dishDetailView.afterRender();
-  }
-  */
 }

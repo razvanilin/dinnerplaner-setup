@@ -2,6 +2,7 @@ class SideBarView {
 	constructor(container, model) {
 		this.container = container;
 		this.model = model;
+		this.numberOfGuestInput = null;
 	}
 	render() {
 		this.container.html(/* template */ `
@@ -13,7 +14,7 @@ class SideBarView {
 							<span>People</span>
 						</div>
 						<div class="col-6">
-							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}" min="1">
+							<input id="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}" min="1">
 						</div>
 					</div>
 				</div>
@@ -31,6 +32,7 @@ class SideBarView {
 				</div>
 			</div>
 		`);
+		this.afterRender();
 	}
 	renderListedItems() {
 		var listedItems = '';
@@ -39,5 +41,8 @@ class SideBarView {
 			listedItems = listedItems + listItem.render();
 		});
 		return listedItems;
+	}
+	afterRender() {
+		this.numberOfGuestInput = this.container.find("#numberOfGuestsInput");
 	}
 }
