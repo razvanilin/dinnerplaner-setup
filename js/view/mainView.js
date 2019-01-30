@@ -5,27 +5,52 @@ class MainView {
     this.model = model;
   }
   render() {
-    var mobileBarView = new MobileBarView(this.model);
-    var sidebarView = new SidebarView(this.model);
-    var dishSearchView = new DishSearchView(this.model);
-    var dishDetailView = new DishDetailView(this.model, this.model.getDish(1));
-
     var content = /* template */ `
       <div class="container">
         <div class="row no-gutters">
-          ${sidebarView.render()}
-          ${dishSearchView.render()}
-          ${false ? dishDetailView.render() : ''}
+          <div class="col-sm-12 col-md-3">
+            <div id="sideBarView"></div>
+          </div>
+          <div class="col-sm-12 col-md-9">
+            ${false ? '<div id="dishDetailView"></div>' : '<div id="dishSearchView"></div>'}  
+          </div>      
         </div>
       </div>
     `;
     
-    this.mobileContainer.html(mobileBarView.render());
     this.container.html(content);
-    
+
+    this.renderMobileBarView(this.mobileContainer);
+    this.renderSideBarView();
+    this.renderDishSearchView();
+    this.renderDishDetailView();
+
     // Opening the mobile menu
     $('.mobile-button').click(function () {
       $('body').toggleClass('menu-open');
     })
+  }
+
+  renderMobileBarView(container) {
+    var mobileBarView = new MobileBarView(this.model);
+    container.html(mobileBarView.render());
+  }
+
+  renderSideBarView() {
+    var element = this.container.find("#sideBarView");
+    var sidebarView = new SidebarView(this.model);
+    element.html(sidebarView.render());
+  }
+
+  renderDishSearchView() {
+    var element = this.container.find("#dishSearchView");
+    var dishSearchView = new DishSearchView(this.model);
+    element.html(dishSearchView.render());
+  }
+
+  renderDishDetailView() {
+    var element = this.container.find("#dishDetailView");
+    var dishDetailView = new DishDetailView(this.model, this.model.getDish(1));
+    element.html(dishDetailView.render());
   }
 }

@@ -6,9 +6,8 @@ class OverviewView {
     }
 
     render() {
-        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests(), "");
         var content = /* template */ `
-        ${subheader.render()}
+        <div id="subheaderView"></div>
 
         <div class="spacing"></div>
         <div class="container">
@@ -25,6 +24,7 @@ class OverviewView {
         `
 
         this.container.html(content);
+        this.renderSubHeaderView();
     }
 
     getDishesOnMenu() {
@@ -65,5 +65,11 @@ class OverviewView {
         <hr>
         <div class="spacing-small"></div>
         `
+    }
+
+    renderSubHeaderView() {
+        var element = this.container.find("#subheaderView");
+        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests(), "");
+        element.html(subheader.render())
     }
 }
