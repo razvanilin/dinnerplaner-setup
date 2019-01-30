@@ -9,7 +9,7 @@ $(function() {
 	var mainView = new MainView($("#page-content"), model);
 	var overviewView = new OverviewView($("#page-content"), model, true);
 
-	mainView.render();
+	overviewView.render();
 	mobileBarView.render();
 });
 
