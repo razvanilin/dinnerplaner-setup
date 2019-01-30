@@ -1,5 +1,6 @@
 class DishItemView {
-	constructor(image, name, price) {
+	constructor(id, image, name, price) {
+		this.id = id;
 		this.image = image;
 		this.name = name;
 		this.price = price;
@@ -19,7 +20,7 @@ class DishItemView {
 		} else {
 			return /* template */ `
 				<div class="col-sm-6 col-md-4 item-column">
-					<a class="item-box" href="">
+					<a onClick="navigate('select-dish', ${this.id})" class="item-box">
 						<img src="images/${this.image}" alt="">
 						<div class="label text-center">${this.name}</div>
 					</a>

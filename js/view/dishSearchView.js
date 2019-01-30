@@ -39,7 +39,7 @@ class DishSearchView {
 		
 		var dishItems = '';
 		this.model.getAllDishes().map((dish, index) => {
-			const dishItem = new DishItemView(dish.image, dish.name);
+			const dishItem = new DishItemView(dish.id, dish.image, dish.name);
 			dishItems = dishItems + dishItem.render();
 		});
 		return dishItems;

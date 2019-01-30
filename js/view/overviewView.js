@@ -1,37 +1,31 @@
 class OverviewView {
-    constructor(container, model, isPrintView) {
+    constructor(container, model) {
         this.container = container;
         this.model = model;
-        this.isPrintView = isPrintView;
     }
 
-    render() {
+    render(isPrint) {
         var content = /* template */ `
         <div id="subheaderView"></div>
-
         <div class="spacing"></div>
         <div class="container">
             <div class="row justify-content-center">
-
-                ${this.getDishesOnMenu()}
-
-                ${!this.isPrintView ? this.getTotalPrice() : ''}
+                ${this.getDishesOnMenu(isPrint)}
+                ${!isPrint ? this.getTotalPrice() : ''}
             </div>
-            
-            ${!this.isPrintView ? this.getSpacing() : ""}
-            ${!this.isPrintView ? this.getToPrintBtn() : ""}
+            ${!isPrint ? this.getSpacing() : ""}
+            ${!isPrint ? this.getToPrintBtn() : ""}
         </div>
         `
-
         this.container.html(content);
         this.renderSubHeaderView();
     }
 
-    getDishesOnMenu() {
+    getDishesOnMenu(isPrint) {
         var elements = "";
         this.model.getFullMenu().map((dish, index) => {
-            var dishItemView = new DishItemView(dish.image, dish.name, this.model.getDishPrice(dish.id) * this.model.getNumberOfGuests());
-            if (this.isPrintView) {
+            var dishItemView = new DishItemView(dish.id, dish.image, dish.name, this.model.getDishPrice(dish.id) * this.model.getNumberOfGuests());
+            if (isPrint) {
                 dishItemView = new DishPreparationView(dish);
             }
             elements = elements.concat(dishItemView.render());
@@ -42,7 +36,7 @@ class OverviewView {
     getToPrintBtn() {
         return /* template */ `
         <div class="text-center">
-            <a href="" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
+            <a onClick="navigate('print')" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
         </div>
         <div class="spacing"></div>
         `;
@@ -69,7 +63,7 @@ class OverviewView {
 
     renderSubHeaderView() {
         var element = this.container.find("#subheaderView");
-        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests(), "");
+        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests());
         element.html(subheader.render())
     }
 }

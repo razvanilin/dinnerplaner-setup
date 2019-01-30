@@ -1,7 +1,6 @@
 class SubHeaderOverview {
-    constructor(numGuests, link) {
+    constructor(numGuests) {
         this.numGuests = numGuests;
-        this.link = link;
     }
 
     render() {
@@ -11,7 +10,7 @@ class SubHeaderOverview {
                     <div class="header sub d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <h2>My dinner: ${this.numGuests} people</h2>
                         <div class="spacing-x-small d-md-none"></div>
-                        <a href="${this.link}" class="btn btn-light btn-primary-color">Go back and edit dinner</a>
+                        <a onClick="navigate('select')" class="btn btn-light btn-primary-color">Go back and edit dinner</a>
                     </div>
                 </div>
             </div>
