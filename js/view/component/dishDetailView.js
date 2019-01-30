@@ -32,7 +32,7 @@ class DishDetailView {
 										<div class="col-2 text-right">SEK</div>
 									</div>
 								</div>
-								<a onClick="${this.model.addDishToMenu(dish.id)}" id="addToMenuBtn" class="btn btn-light btn-primary-color">
+								<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
 									Add to menu
 								</a>
 							</div>
@@ -49,7 +49,7 @@ class DishDetailView {
 				</div>
 			</div>
 			`);
-
+		this.afterRender();
 	}
 	renderIngredientItems(dish) {
 		var ingredientItems = '';
@@ -66,7 +66,7 @@ class DishDetailView {
 		return ingredientItems;
 	}
 
-	afterRender(){
+	afterRender() {
 		this.addToMenuBtn = this.container.find("#addToMenuBtn");
 	}
 }
