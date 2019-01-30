@@ -33,7 +33,7 @@ class OverviewView {
     getDishesOnMenu(isPrint) {
         var elements = "";
         this.model.getFullMenu().map((dish, index) => {
-            var dishItemView = new DishItemView(dish.id, dish.image, dish.name, this.model.getDishPrice(dish.id) * this.model.getNumberOfGuests());
+            var dishItemView = new DishItemView(dish, this.model);
             if (isPrint) {
                 dishItemView = new DishPreparationView(dish);
             }
