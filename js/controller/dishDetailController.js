@@ -6,11 +6,14 @@ class DishDetailController {
     }
 
     addEventListeners() {
-        this.view.addToMenuBtn.on("click",
-            () => this.model.addDishToMenu(this.dish.id));            
+        this.view.addToMenuBtn.on("click", () => {
+            this.model.addDishToMenu(this.dish.id);
+            navigate('select');
+        });
     }
 
     renderView() {
         this.view.render(this.dish);
+        this.addEventListeners();
     }
 }

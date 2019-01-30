@@ -13,7 +13,7 @@ class SideBarView {
 							<span>People</span>
 						</div>
 						<div class="col-6">
-							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}">
+							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}" min="1">
 						</div>
 					</div>
 				</div>
