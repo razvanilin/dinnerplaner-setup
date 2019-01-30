@@ -15,6 +15,7 @@ h3 {
 }
 input {
     max-width: 100%;
+    padding-left: 5px;
 }
 a:hover {
     cursor: pointer;
