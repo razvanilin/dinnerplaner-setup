@@ -6,6 +6,9 @@ class OverviewView {
 
     render(isPrint) {
         var content = /* template */ `
+        <div class="header d-flex align-items-center justify-content-center">
+            <h1>Dinner Planner</h1>
+        </div>
         <div id="subheaderView"></div>
         <div class="spacing"></div>
         <div class="container">

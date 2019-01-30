@@ -1,22 +1,21 @@
 class DishDetailView {
-	constructor(container, model, dish) {
-		this.model = model;
-		this.dish = dish;
+	constructor(container, model) {
 		this.container = container;
+		this.model = model;
 		this.addToMenuBtn = null;
 	}
-	render() {
-		return /* template */ `
+	render(dish) {
+		this.container.html(/* template */ `
 			<div class="scroll-view full">
 				<div class="spacing-small"></div>
 				<div class="container">
 					<div class="row">
 						<div class="col-lg-6 small-padding-box">
-							<h1>${this.dish.name}</h1>
+							<h1>${dish.name}</h1>
 							<div class="spacing-x-small"></div>
-							<img class="d-block" src="images/${this.dish.image}" alt="" width="300">
+							<img class="d-block" src="images/${dish.image}" alt="" width="300">
 							<div class="spacing-x-small"></div>
-							<p style="text-transform: capitalize;">${this.dish.type}</p>
+							<p style="text-transform: capitalize;">${dish.type}</p>
 							<a onClick="navigate('select')" class="btn btn-light btn-primary-color">Back to search</a>
 							<div class="spacing-small d-lg-none"></div>
 						</div>
@@ -25,15 +24,15 @@ class DishDetailView {
 								<h3 class="h3-height">Ingredients for ${this.model.getNumberOfGuests()} people</h3>
 								<div class="container ingredients-height d-flex flex-column">
 									<div class="line"></div>
-									${this.renderIngredientItems()}
+									${this.renderIngredientItems(dish)}
 									<div class="line"></div>
 									<div class="row align-items-center gray-border-top total-display">
 										<div class="col-8 text-left"></div>
-										<div class="col-2 text-right">${this.model.getDishPrice(this.dish.id) * this.model.getNumberOfGuests()}</div>
+										<div class="col-2 text-right">${this.model.getDishPrice(dish.id) * this.model.getNumberOfGuests()}</div>
 										<div class="col-2 text-right">SEK</div>
 									</div>
 								</div>
-								<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
+								<a onClick="${this.model.addDishToMenu(dish.id)}" id="addToMenuBtn" class="btn btn-light btn-primary-color">
 									Add to menu
 								</a>
 							</div>
@@ -44,17 +43,17 @@ class DishDetailView {
 					
 					<div class="div-preparation">
 						<h1>PREPARATION</h1>
-						<p>${this.dish.description}</p>
+						<p>${dish.description}</p>
 					</div>
 					<div class="spacing-small"></div>
 				</div>
 			</div>
-			`;
+			`);
 
 	}
-	renderIngredientItems() {
+	renderIngredientItems(dish) {
 		var ingredientItems = '';
-		this.dish.ingredients.map((ingredient, index) => {
+		dish.ingredients.map((ingredient, index) => {
 			ingredientItems = ingredientItems +  /* template */ `
 				<div class="row align-items-center">
 					<div class="col-3">${ingredient.quantity + ' ' + ingredient.unit}</div>

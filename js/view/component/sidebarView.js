@@ -1,9 +1,10 @@
-class SidebarView {
-	constructor(model) {
+class SideBarView {
+	constructor(container, model) {
+		this.container = container;
 		this.model = model;
 	}
 	render() {
-		return /* template */ `
+		this.container.html(/* template */ `
 			<div class="sidebar border-right full-vh">
 				<div class="padding">
 					<h2>My dinner</h2>
@@ -26,10 +27,10 @@ class SidebarView {
 				<div class="padding">
 					<div class="text-right text-danger">Total ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</div>
 					<div class="spacing"></div>
-					<a onClick="navigate('overview')" class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</a>
+					<button onClick="navigate('overview')" class="btn btn-block btn-lg btn-primary-color" ${!this.renderListedItems() ? 'disabled' : ''}>Confirm Dinner</button>
 				</div>
 			</div>
-		`;
+		`);
 	}
 	renderListedItems() {
 		var listedItems = '';

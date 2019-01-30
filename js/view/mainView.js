@@ -1,11 +1,20 @@
 class MainView {
-  constructor(mobileContainer, container, model) {
-    this.mobileContainer = mobileContainer;
+  constructor(container, model) {
     this.container = container;
     this.model = model;
+    this.childContainers = {
+      mobileBar: null,
+      sideBar: null,
+      dishDetail: null,
+      dishSearch: null,
+    }
   }
   render(dishId) {
     var content = /* template */ `
+      <div id="mobileBarView"></div>
+      <div class="header d-flex align-items-center justify-content-center">
+        <h1>Dinner Planner</h1>
+      </div>
       <div class="container">
         <div class="row no-gutters">
           <div class="col-sm-12 col-md-3">
@@ -17,16 +26,7 @@ class MainView {
         </div>
       </div>
     `;
-    
     this.container.html(content);
-
-    this.renderMobileBarView(this.mobileContainer);
-    this.renderSideBarView();
-    if(!dishId) {
-      this.renderDishSearchView();
-    }else{
-      this.renderDishDetailView(dishId);
-    }
 
     // Opening the mobile menu
     $('.mobile-button').click(function () {
@@ -34,16 +34,14 @@ class MainView {
     })
   }
 
-  renderMobileBarView(container) {
-    var mobileBarView = new MobileBarView(this.model);
-    container.html(mobileBarView.render());
+  afterRender() {
+    this.childContainers.mobileBar = this.container.find("#mobileBarView");
+    this.childContainers.sideBar = this.container.find("#sideBarView");
+    this.childContainers.dishSearch = this.container.find("#dishSearchView");
+    this.childContainers.dishDetail = this.container.find("#dishDetailView");
   }
 
-  renderSideBarView() {
-    var element = this.container.find("#sideBarView");
-    var sidebarView = new SidebarView(this.model);
-    element.html(sidebarView.render());
-  }
+  /*
 
   renderDishSearchView() {
     var element = this.container.find("#dishSearchView");
@@ -58,4 +56,5 @@ class MainView {
 
     dishDetailView.afterRender();
   }
+  */
 }

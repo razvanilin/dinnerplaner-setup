@@ -1,9 +1,10 @@
 class DishSearchView {
-	constructor(model) {
+	constructor(container, model) {
+		this.container = container;
 		this.model = model;
 	}
 	render() {
-		return /* template */ `
+		this.container.html(/* template */ `
 			<div class="container border-bottom">
 				<div class="spacing-small"></div>
 				<h2>${!this.model.getFullMenu().length ? 'Find a dish' : 'Add another one'}</h2>
@@ -33,7 +34,7 @@ class DishSearchView {
 				</div>
 				<div class="spacing-small"></div>
 			</div>
-		`;
+		`);
 	}
 	renderDishItems() {
 		
