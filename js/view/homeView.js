@@ -11,7 +11,7 @@ class HomeView {
           arcu. Maecenas a efficitur leo.
         </p>
         <div class="spacing-medium"></div>
-        <a href="" class="btn btn-lg btn-primary-color">
+        <a onClick="navigate('select')" class="btn btn-lg btn-primary-color">
           Create new dinner
         </a>
       </div>

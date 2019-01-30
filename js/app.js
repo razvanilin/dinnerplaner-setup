@@ -1,20 +1,22 @@
-$(function() {
+$(document).ready(function () {
 	var model = new DinnerModel();
 	model.addDishToMenu(1);
 	model.addDishToMenu(2);
+	
+	homeView = new HomeView($("#page-content"));
+	mainView = new MainView($("#mobile-bar"), $("#page-content"), model);
+	overviewView = new OverviewView($("#page-content"), model, true);
 
-	var mobileBarView = new MobileBarView($("#mobile-bar"), model);
-
-	var homeView = new HomeView($("#page-content"));
-	var mainView = new MainView($("#page-content"), model);
-	var overviewView = new OverviewView($("#page-content"), model, true);
-
-	mainView.render();
-	mobileBarView.render();
+	homeView.render();
 });
 
-$(document).ready(function () {
-	$('.mobile-button').click(function () {
-		$('body').toggleClass('menu-open');
-	})
-});
+function navigate(viewName, dishId) {
+	switch (viewName) {
+		case 'home':
+			homeView.render();
+			break;
+		case 'select':
+			this.mainView.render();
+			break;
+	}
+}

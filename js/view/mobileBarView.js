@@ -1,6 +1,5 @@
 class MobileBarView {
-  constructor(container, model) {
-    this.container = container;
+  constructor(model) {
     this.model = model;
   }
   render() {
@@ -13,7 +12,8 @@ class MobileBarView {
           <a class="mobile-button"><i class="fas fa-bars"></i></a>
         </div>
       </div>
+      <div class="mobile-bar-off-set d-md-none"></div>
     `;
-    this.container.html(content);
+    return content;
   }
 }
