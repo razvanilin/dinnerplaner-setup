@@ -22,8 +22,11 @@ class MainView {
 
     this.renderMobileBarView(this.mobileContainer);
     this.renderSideBarView();
-    this.renderDishSearchView();
-    this.renderDishDetailView(dishId);
+    if(!dishId) {
+      this.renderDishSearchView();
+    }else{
+      this.renderDishDetailView(dishId);
+    }
 
     // Opening the mobile menu
     $('.mobile-button').click(function () {

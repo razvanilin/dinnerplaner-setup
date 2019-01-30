@@ -74,6 +74,8 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		//TODO Lab 1 
+		console.log("dish added: " + id);
+		
 		this.menu.push(this.getDish(id));
 	}
 

@@ -4,10 +4,13 @@ $(document).ready(function () {
 	model.addDishToMenu(2);
 	
 	homeView = new HomeView($("#page-content"));
-	mainView = new MainView($("#mobile-bar"), $("#page-content"), model);
+	//mainView = new MainView($("#mobile-bar"), $("#page-content"), model);
 	overviewView = new OverviewView($("#page-content"), model);
 
 	homeView.render();
+
+	var mainView = new MainView($("#mobile-bar"), $("#page-content"), model);
+	mainController = new MainController(mainView, model);
 });
 
 function navigate(viewName, dishId) {
@@ -16,10 +19,11 @@ function navigate(viewName, dishId) {
 			homeView.render();
 			break;
 		case 'select':
-			this.mainView.render();
+			//this.mainView.render();
+			mainController.renderView();
 			break;
 		case 'select-dish':
-			this.mainView.render(dishId);
+			mainController.renderView(dishId);
 			break;
 		case 'overview':
 			this.overviewView.render(false);
