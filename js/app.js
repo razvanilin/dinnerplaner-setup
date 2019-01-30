@@ -26,6 +26,7 @@ function navigate(viewName, dishId) {
 			break;
 		case 'overview':
 			overviewController.renderView(false);
+			$("#mobile-bar").html();
 			break;
 		case 'print':
 			overviewController.renderView(true);

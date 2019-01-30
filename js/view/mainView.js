@@ -27,11 +27,6 @@ class MainView {
       </div>
     `;
     this.container.html(content);
-
-    // Opening the mobile menu
-    $('.mobile-button').click(function () {
-      $('body').toggleClass('menu-open');
-    })
   }
 
   afterRender() {
@@ -40,5 +35,4 @@ class MainView {
     this.childContainers.dishSearch = this.container.find("#dishSearchView");
     this.childContainers.dishDetail = this.container.find("#dishDetailView");
   }
-
 }

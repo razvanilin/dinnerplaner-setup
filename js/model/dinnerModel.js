@@ -109,13 +109,10 @@ var DinnerModel = function() {
 	this.getAllDishes = function () {
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
-		console.log(type);
 
 		return dishes.filter((dish) => {
 			let found = true;
-			if (!type && !filter) {
-				console.log("no type no filter");
-				
+			if (!type && !filter) {				
 				return true; // return all the dishes for the case no filter is set and all is selected
 			}
 			if (filter) {
