@@ -3,7 +3,15 @@ class SideBarView {
 		this.container = container;
 		this.model = model;
 		this.numberOfGuestInput = null;
+
+		this.model.addObserver(this);
 	}
+	update(model, changeDetails) {
+		if (changeDetails.type == 'updatedGuests') {
+			this.render();
+			this.model.removeObserver(changeDetails);
+		}
+	} 
 	render() {
 		this.container.html(/* template */ `
 			<div class="sidebar border-right full-vh">
