@@ -15,7 +15,7 @@ class DishDetailView {
 							<img class="d-block" src="images/${this.dish.image}" alt="" width="300">
 							<div class="spacing-x-small"></div>
 							<p style="text-transform: capitalize;">${this.dish.type}</p>
-							<a href="" class="btn btn-light btn-primary-color">Back to search</a>
+							<a onClick="navigate('select')" class="btn btn-light btn-primary-color">Back to search</a>
 							<div class="spacing-small d-lg-none"></div>
 						</div>
 						<div class="col-lg-6 col-md-12">

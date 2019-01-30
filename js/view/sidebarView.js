@@ -26,7 +26,7 @@ class SidebarView {
 				<div class="padding">
 					<div class="text-right text-danger">Total ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</div>
 					<div class="spacing"></div>
-					<button class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</button>
+					<a onClick="navigate('overview')" class="btn btn-block btn-lg btn-primary-color">Confirm Dinner</a>
 				</div>
 			</div>
 		`;

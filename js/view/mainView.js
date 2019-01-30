@@ -4,7 +4,7 @@ class MainView {
     this.container = container;
     this.model = model;
   }
-  render() {
+  render(dishId) {
     var content = /* template */ `
       <div class="container">
         <div class="row no-gutters">
@@ -12,7 +12,7 @@ class MainView {
             <div id="sideBarView"></div>
           </div>
           <div class="col-sm-12 col-md-9">
-            ${false ? '<div id="dishDetailView"></div>' : '<div id="dishSearchView"></div>'}  
+            ${dishId ? '<div id="dishDetailView"></div>' : '<div id="dishSearchView"></div>'}  
           </div>      
         </div>
       </div>
@@ -23,7 +23,7 @@ class MainView {
     this.renderMobileBarView(this.mobileContainer);
     this.renderSideBarView();
     this.renderDishSearchView();
-    this.renderDishDetailView();
+    this.renderDishDetailView(dishId);
 
     // Opening the mobile menu
     $('.mobile-button').click(function () {
@@ -48,9 +48,9 @@ class MainView {
     element.html(dishSearchView.render());
   }
 
-  renderDishDetailView() {
+  renderDishDetailView(dishId) {
     var element = this.container.find("#dishDetailView");
-    var dishDetailView = new DishDetailView(this.model, this.model.getDish(1));
+    var dishDetailView = new DishDetailView(this.model, this.model.getDish(dishId));
     element.html(dishDetailView.render());
   }
 }
