@@ -12,7 +12,7 @@ class MainView {
             <div id="sideBarView"></div>
           </div>
           <div class="col-sm-12 col-md-9">
-            ${false ? '<div id="dishDetailView"></div>' : '<div id="dishSearchView"></div>'}  
+            ${true ? '<div id="dishDetailView"></div>' : '<div id="dishSearchView"></div>'}  
           </div>      
         </div>
       </div>
@@ -50,7 +50,9 @@ class MainView {
 
   renderDishDetailView() {
     var element = this.container.find("#dishDetailView");
-    var dishDetailView = new DishDetailView(this.model, this.model.getDish(1));
+    var dishDetailView = new DishDetailView(this.container, this.model, this.model.getDish(1));
     element.html(dishDetailView.render());
+
+    dishDetailView.afterRender();
   }
 }

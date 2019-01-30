@@ -1,7 +1,9 @@
 class DishDetailView {
-	constructor(model, dish) {
+	constructor(container, model, dish) {
 		this.model = model;
 		this.dish = dish;
+		this.container = container;
+		this.addToMenuBtn = null;
 	}
 	render() {
 		return /* template */ `
@@ -31,7 +33,7 @@ class DishDetailView {
 										<div class="col-2 text-right">SEK</div>
 									</div>
 								</div>
-								<a href="" class="btn btn-light btn-primary-color">
+								<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
 									Add to menu
 								</a>
 							</div>
@@ -48,6 +50,7 @@ class DishDetailView {
 				</div>
 			</div>
 			`;
+
 	}
 	renderIngredientItems() {
 		var ingredientItems = '';
@@ -62,5 +65,9 @@ class DishDetailView {
 				`;
 		});
 		return ingredientItems;
+	}
+
+	afterRender(){
+		this.addToMenuBtn = this.container.find("#addToMenuBtn");
 	}
 }
