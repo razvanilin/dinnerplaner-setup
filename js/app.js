@@ -6,7 +6,9 @@ $(document).ready(function () {
 	var mainView = new MainView($("#page-content"), model);
 	mainController = new MainController(mainView, model);
 
-	overviewView = new OverviewView($("#page-content"), model);
+	var overviewView = new OverviewView($("#page-content"), model);
+	overviewController = new OverviewController(overviewView, model);
+
 
 	mainController.renderView();
 });
@@ -23,11 +25,11 @@ function navigate(viewName, dishId) {
 			mainController.renderView(dishId);
 			break;
 		case 'overview':
-			this.overviewView.render(false);
+			overviewController.renderView(false);
 			$("#mobile-bar").html();
 			break;
 		case 'print':
-			this.overviewView.render(true);
+			overviewController.renderView(true);
 			break;
 	}
 }
