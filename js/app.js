@@ -7,7 +7,7 @@ $(function() {
 	var mainView = new MainView($("#page-content"), model);
 	var overviewView = new OverviewView($("#page-content"), model, true);
 
-	homeView.render();
+	mainView.render();
 });
 
 $('.mobile-button').click(function() {

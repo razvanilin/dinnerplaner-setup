@@ -1,7 +1,7 @@
 body {
     font-size: 16px;
 }
-body.menu-open .mobile-menu .menu-items {
+body.menu-open  .sidebar {
     display: block;
 }
 h1 {
@@ -12,6 +12,9 @@ h2 {
 }
 h3 {
     font-size: 20px;
+}
+input {
+    max-width: 100%;
 }
 a:hover {
     cursor: pointer;
@@ -50,6 +53,17 @@ a:hover {
 }
 .mobile-bar {
     height: 60px;
+    position: fixed;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #fff;
+    z-index: 1;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+}
+.mobile-bar-off-set {
+    height: 60px;
+    display: block;
 }
 .mobile-bar h2 {
     font-size: 22px;

@@ -4,14 +4,17 @@ class SidebarView {
 	}
 	render() {
 		return /* template */ `
-			<div class="col-sm-12 col-md-3 d-none d-md-block">
-				<div class="border-right full-vh">
+			<div class="col-sm-12 col-md-3">
+				<div class="sidebar border-right full-vh">
 					<div class="padding">
 						<h2>My dinner</h2>
-						<div class="d-flex align-items-center">
-							People
-							<div class="h-spacing-small"></div>
-							<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}">
+						<div class="row">
+							<div class="col-auto">
+								<span>People</span>
+							</div>
+							<div class="col-6">
+								<input class="numberOfGuestsInput" type="number" name="numberOfGuests" value="${this.model.getNumberOfGuests()}">
+							</div>
 						</div>
 					</div>
 					<div class="label d-flex justify-content-between">
