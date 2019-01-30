@@ -3,6 +3,7 @@ class OverviewView {
         this.container = container;
         this.model = model;
         this.subHeader = null;
+        this.toPrintBtn = null;
     }
 
     render(isPrint) {
@@ -21,10 +22,12 @@ class OverviewView {
                 ${!isPrint ? this.getToPrintBtn() : ""}
             </div>
         `);
+        this.afterRender();
     }
 
     afterRender() {
         this.subHeader = this.container.find("#subHeaderView");
+        this.toPrintBtn = this.container.find("#toPrintBtn");
     }
 
     getDishesOnMenu(isPrint) {
@@ -42,7 +45,7 @@ class OverviewView {
     getToPrintBtn() {
         return /* template */ `
         <div class="text-center">
-            <a onClick="navigate('print')" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
+            <a id="toPrintBtn" class="btn btn-lg btn-primary-color">Print Full Recipe</a>
         </div>
         <div class="spacing"></div>
         `;

@@ -1,7 +1,8 @@
 $(document).ready(function () {
 	var model = new DinnerModel();
 	
-	homeView = new HomeView($("#page-content"));
+	var homeView = new HomeView($("#page-content"));
+	homeController = new HomeController(homeView);
 
 	var mainView = new MainView($("#page-content"), model);
 	mainController = new MainController(mainView, model);
@@ -10,13 +11,13 @@ $(document).ready(function () {
 	overviewController = new OverviewController(overviewView, model);
 
 
-	mainController.renderView();
+	homeController.renderView();
 });
 
 function navigate(viewName, dishId) {
 	switch (viewName) {
 		case 'home':
-			homeView.render();
+			homeController.renderView();
 			break;
 		case 'select':
 			mainController.renderView();

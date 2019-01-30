@@ -3,6 +3,7 @@ class DishDetailView {
 		this.container = container;
 		this.model = model;
 		this.addToMenuBtn = null;
+		this.backBtn = null;
 	}
 	render(dish) {
 		this.container.html(/* template */ `
@@ -16,7 +17,7 @@ class DishDetailView {
 							<img class="d-block" src="images/${dish.image}" alt="" width="300">
 							<div class="spacing-x-small"></div>
 							<p style="text-transform: capitalize;">${dish.type}</p>
-							<a onClick="navigate('select')" class="btn btn-light btn-primary-color">Back to search</a>
+							<a id="backBtn" class="btn btn-light btn-primary-color">Back to search</a>
 							<div class="spacing-small d-lg-none"></div>
 						</div>
 						<div class="col-lg-6 col-md-12">
@@ -68,5 +69,6 @@ class DishDetailView {
 
 	afterRender() {
 		this.addToMenuBtn = this.container.find("#addToMenuBtn");
+		this.backBtn = this.container.find('#backBtn');
 	}
 }

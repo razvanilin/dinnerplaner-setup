@@ -8,11 +8,6 @@ class MainController{
         this.dishDetailController = null;
     }
 
-    addEventListeners() {
-        // this.view.addToMenuBtn.on("click",
-        //     () => this.model.addDishToMenu(this.dish.id));
-    }
-
     renderView(dishId){
         this.view.render(dishId);
         this.view.afterRender();

@@ -3,6 +3,7 @@ class SideBarView {
 		this.container = container;
 		this.model = model;
 		this.numberOfGuestInput = null;
+		this.confirmBtn = null;
 	}
 	render() {
 		this.container.html(/* template */ `
@@ -28,7 +29,7 @@ class SideBarView {
 				<div class="padding">
 					<div class="text-right text-danger">Total ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</div>
 					<div class="spacing"></div>
-					<button onClick="navigate('overview')" class="btn btn-block btn-lg btn-primary-color" ${!this.renderListedItems() ? 'disabled' : ''}>Confirm Dinner</button>
+					<button id="confirmBtn" class="btn btn-block btn-lg btn-primary-color" ${!this.renderListedItems() ? 'disabled' : ''}>Confirm Dinner</button>
 				</div>
 			</div>
 		`);
@@ -44,5 +45,6 @@ class SideBarView {
 	}
 	afterRender() {
 		this.numberOfGuestInput = this.container.find("#numberOfGuestsInput");
+		this.confirmBtn = this.container.find("#confirmBtn");
 	}
 }

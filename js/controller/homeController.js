@@ -1,16 +1,16 @@
-class SubHeaderController {
-    constructor(view, model) {
+class HomeController {
+
+    constructor(view) {
         this.view = view;
-        this.model = model;
     }
 
     addEventListeners() {
-        this.view.backBtn.on("click", () => {
+        this.view.startBtn.on("click", () => {
             navigate('select');
         })
     }
 
-    renderView() {        
+    renderView() {
         this.view.render();
         this.addEventListeners();
     }
