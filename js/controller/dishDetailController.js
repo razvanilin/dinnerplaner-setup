@@ -10,6 +10,10 @@ class DishDetailController {
             this.model.addDishToMenu(this.dish.id);
             navigate('select');
         });
+
+        this.view.backBtn.on("click", () => {
+            navigate('select');
+        })
     }
 
     renderView() {

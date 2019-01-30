@@ -28,7 +28,6 @@ class MainView {
     `;
     this.container.html(content);
   }
-
   afterRender() {
     this.childContainers.mobileBar = this.container.find("#mobileBarView");
     this.childContainers.sideBar = this.container.find("#sideBarView");

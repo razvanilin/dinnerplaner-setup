@@ -3,13 +3,18 @@ class MobileBarView {
     this.container = container;
     this.model = model;
     this.mobileBtn = null;
+
+    this.model.numberOfGuestsObs.addObserver(this);
+  }
+  update(payload) {
+    this.updateDynamicContent();
   }
   render() {
     this.container.html(/* template */ `
       <div class="mobile-bar d-flex d-md-none justify-content-between align-items-center">
         <h2>My dinner</h2>
         <div class="d-flex">
-          <span class="text-danger">SEK ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()}</span>
+          <span class="text-danger" id="totalPrice"></span>
           <div class="h-spacing-small"></div>
           <a id="mobile-button" class="mobile-button"><i class="fas fa-bars"></i></a>
         </div>
@@ -18,7 +23,11 @@ class MobileBarView {
     `);
     this.afterRender();
   }
+  updateDynamicContent() {
+    this.container.find("#totalPrice").html('SEK ' + this.model.getTotalMenuPrice() * this.model.getNumberOfGuests());
+  }
   afterRender() {
+    this.updateDynamicContent();
     this.mobileBtn = this.container.find("#mobile-button");
   }
 }

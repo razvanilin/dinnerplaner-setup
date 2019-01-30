@@ -1,6 +1,7 @@
 class HomeView {
   constructor(container) {
     this.container = container;
+    this.startBtn = null;
   }
   render() {
     var content = /* template */ `
@@ -14,11 +15,16 @@ class HomeView {
           arcu. Maecenas a efficitur leo.
         </p>
         <div class="spacing-medium"></div>
-        <a onClick="navigate('select')" class="btn btn-lg btn-primary-color">
+        <a id="startBtn" class="btn btn-lg btn-primary-color">
           Create new dinner
         </a>
       </div>
     `;
     this.container.html(content);
+    this.afterRender();
+  }
+
+  afterRender() {
+    this.startBtn = this.container.find("#startBtn");
   }
 }

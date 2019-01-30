@@ -3,15 +3,13 @@ class SideBarView {
 		this.container = container;
 		this.model = model;
 		this.numberOfGuestInput = null;
+		this.confirmBtn = null;
 
-		this.model.addObserver(this);
+		this.model.numberOfGuestsObs.addObserver(this);
 	}
-	update(model, changeDetails) {
-		if (changeDetails.type == 'updatedGuests') {
-			this.render();
-			this.model.removeObserver(changeDetails);
-		}
-	} 
+	update(payload) {
+		this.renderListedItems();
+	}
 	render() {
 		this.container.html(/* template */ `
 			<div class="sidebar border-right full-vh">
@@ -30,13 +28,12 @@ class SideBarView {
 					<span>Dish name</span>
 					<span>Cost</span>
 				</div>
-				<div class="padding no-padding-bottom">
-					${this.renderListedItems() ? this.renderListedItems() : 'No added dishes'}
+				<div id="list" class="padding no-padding-bottom">
 				</div>
 				<div class="padding">
-					<div class="text-right text-danger">Total ${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</div>
+					<div class="text-right text-danger">Total <span id="totalPrice"></span> SEK</div>
 					<div class="spacing"></div>
-					<button onClick="navigate('overview')" class="btn btn-block btn-lg btn-primary-color" ${!this.renderListedItems() ? 'disabled' : ''}>Confirm Dinner</button>
+					<button id="confirmBtn" class="btn btn-block btn-lg btn-primary-color" ${!this.model.getFullMenu().length ? 'disabled' : ''}>Confirm Dinner</button>
 				</div>
 			</div>
 		`);
@@ -48,9 +45,13 @@ class SideBarView {
 			const listItem = new ListItemView(dish.name, this.model.getDishPrice(dish.id), this.model.getNumberOfGuests());
 			listedItems = listedItems + listItem.render();
 		});
-		return listedItems;
+		listedItems = listedItems === '' ? 'No added dishes' : listedItems;
+		this.container.find('#list').html(listedItems);
+		this.container.find('#totalPrice').html(this.model.getTotalMenuPrice() * this.model.getNumberOfGuests())
 	}
 	afterRender() {
+		this.renderListedItems();
 		this.numberOfGuestInput = this.container.find("#numberOfGuestsInput");
+		this.confirmBtn = this.container.find("#confirmBtn");
 	}
 }

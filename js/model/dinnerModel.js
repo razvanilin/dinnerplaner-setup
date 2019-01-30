@@ -1,32 +1,11 @@
-class Observable {
+class DinnerModel {
 	constructor() {
-		this._observers = [];
-	}
-
-	addObserver(observer) {
-		this._observers.push(observer);
-	}
-
-	notifyObservers(changeDetails) {
-		for (var i = 0; i < this._observers.length; i++) {
-			this._observers[i].update(this, changeDetails);
-		}
-	}
-
-	removeObserver(observer) {
-		this._observers.filter(function (o) {
-			return observer.type != o.type;
-		})
-	}
-}
-
-class DinnerModel extends Observable {
-	constructor() {
-		super();
 		this.searchString = '';
 		this.searchType = '';
 		this.numberOfGuests = 1;
 		this.menu = [];
+		
+		this.numberOfGuestsObs = new Observable(1);
 	}
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
@@ -50,7 +29,7 @@ class DinnerModel extends Observable {
 
 	setNumberOfGuests(num) {
 		this.numberOfGuests = num;
-		this.notifyObservers({ type: "updatedGuests", value: num});
+		this.numberOfGuestsObs.updateValue(num);
 	}
 	
 	getNumberOfGuests() {

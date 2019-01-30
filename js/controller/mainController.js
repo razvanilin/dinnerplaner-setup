@@ -7,12 +7,6 @@ class MainController{
         this.dishSearchController = null;
         this.dishDetailController = null;
     }
-
-    addEventListeners() {
-        // this.view.addToMenuBtn.on("click",
-        //     () => this.model.addDishToMenu(this.dish.id));
-    }
-
     renderView(dishId){
         this.view.render(dishId);
         this.view.afterRender();
@@ -42,7 +36,7 @@ class MainController{
         this.dishSearchController.renderView();
     }
     renderDishDetail(dish) {
-        var dishDetailView = new DishDetailView(this.view.childContainers.dishDetail, this.model);
+        var dishDetailView = new DishDetailView(this.view.childContainers.dishDetail, this.model, dish);
         this.dishDetailController = new DishDetailController(dishDetailView, this.model, dish)
         this.dishDetailController.renderView();
     }
