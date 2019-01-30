@@ -2,26 +2,29 @@ class OverviewView {
     constructor(container, model) {
         this.container = container;
         this.model = model;
+        this.subHeader = null;
     }
 
     render(isPrint) {
-        var content = /* template */ `
-        <div class="header d-flex align-items-center justify-content-center">
-            <h1>Dinner Planner</h1>
-        </div>
-        <div id="subheaderView"></div>
-        <div class="spacing"></div>
-        <div class="container">
-            <div class="row justify-content-center">
-                ${this.getDishesOnMenu(isPrint)}
-                ${!isPrint ? this.getTotalPrice() : ''}
+        this.container.html(/* template */ `
+            <div class="header d-flex align-items-center justify-content-center">
+                <h1>Dinner Planner</h1>
             </div>
-            ${!isPrint ? this.getSpacing() : ""}
-            ${!isPrint ? this.getToPrintBtn() : ""}
-        </div>
-        `
-        this.container.html(content);
-        this.renderSubHeaderView();
+            <div id="subHeaderView"></div>
+            <div class="spacing"></div>
+            <div class="container">
+                <div class="row justify-content-center">
+                    ${this.getDishesOnMenu(isPrint)}
+                    ${!isPrint ? this.getTotalPrice() : ''}
+                </div>
+                ${!isPrint ? this.getSpacing() : ""}
+                ${!isPrint ? this.getToPrintBtn() : ""}
+            </div>
+        `);
+    }
+
+    afterRender() {
+        this.subHeader = this.container.find("#subHeaderView");
     }
 
     getDishesOnMenu(isPrint) {
@@ -62,11 +65,5 @@ class OverviewView {
         <hr>
         <div class="spacing-small"></div>
         `
-    }
-
-    renderSubHeaderView() {
-        var element = this.container.find("#subheaderView");
-        var subheader = new SubHeaderOverview(this.model.getNumberOfGuests());
-        element.html(subheader.render())
     }
 }
