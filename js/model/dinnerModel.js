@@ -1,12 +1,30 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
 
+	this.searchString = '';
+	this.searchType = '';
 	this.numberOfGuests = 1;
 	this.menu = [];
  
 	//TODO Lab 1 implement the data structure that will hold number of guest
 	// and selected dishes for the dinner menu
 
+
+	this.setSearchString = function (string) {
+		this.searchString = string;
+	}
+	
+	this.getSearchString = function () {
+		return this.searchString;
+	}
+
+	this.setSearchType = function (type) {
+		this.searchType = type;
+	}
+
+	this.getSearchType = function () {
+		return this.searchType;
+	}
 
 	this.setNumberOfGuests = function(num) {
 		//TODO Lab 1
@@ -88,26 +106,31 @@ var DinnerModel = function() {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	this.getAllDishes = function (type,filter) {
-	  return dishes.filter(function(dish) {
-		var found = true;
+	this.getAllDishes = function () {
+		var type = this.searchType.toLowerCase();
+		var filter = this.searchString.toLowerCase();
+		console.log(type);
 
-		if (!type) { return true; }
-
-		if(filter){
-			found = false;
-			dish.ingredients.forEach(function(ingredient) {
-				if(ingredient.name.indexOf(filter)!=-1) {
+		return dishes.filter((dish) => {
+			let found = true;
+			if (!type && !filter) {
+				console.log("no type no filter");
+				
+				return true; // return all the dishes for the case no filter is set and all is selected
+			}
+			if (filter) {
+				found = false;
+				dish.ingredients.forEach((ingredient) => {
+					if (ingredient.name.toLowerCase().indexOf(filter) != -1) {
+						found = true;
+					}
+				});
+				if (dish.name.toLowerCase().indexOf(filter) != -1) {
 					found = true;
 				}
-			});
-			if(dish.name.indexOf(filter) != -1)
-			{
-				found = true;
 			}
-		}
-	  	return dish.type == type && found;
-	  });	
+			return type === '' ? found : dish.type == type && found;
+		});
 	}
 
 	//function that returns a dish of specific ID
