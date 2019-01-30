@@ -50,7 +50,9 @@ class MainView {
 
   renderDishDetailView(dishId) {
     var element = this.container.find("#dishDetailView");
-    var dishDetailView = new DishDetailView(this.model, this.model.getDish(dishId));
+    var dishDetailView = new DishDetailView(this.container, this.model, this.model.getDish(dishId));
     element.html(dishDetailView.render());
+
+    dishDetailView.afterRender();
   }
 }
