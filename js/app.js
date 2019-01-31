@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(function () {
 	var model = new DinnerModel();
 	
 	var homeView = new HomeView($("#page-content"));

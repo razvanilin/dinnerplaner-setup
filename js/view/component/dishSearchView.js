@@ -5,8 +5,8 @@ class DishSearchView {
 		this.textInput = null;
 		this.selectInput = null;
 		this.searchBtn = null;
-
 	}
+
 	render() {
 		this.container.html(/* template */ `
 			<div class="container border-bottom">
@@ -42,6 +42,7 @@ class DishSearchView {
 		`);
 		this.afterRender();
 	}
+	
 	renderDishItems() {
 		var dishItems = '';
 		this.model.getAllDishes().map((dish, index) => {

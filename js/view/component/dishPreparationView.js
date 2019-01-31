@@ -1,7 +1,8 @@
 class DishPreparationView {
     constructor(dish) {
 		this.dish = dish;
-    }
+	}
+	
     render() {
         var content = /* template */ `
 		<div class="col-lg-10">

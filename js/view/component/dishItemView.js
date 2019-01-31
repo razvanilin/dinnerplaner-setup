@@ -7,6 +7,7 @@ class DishItemView {
 			this.price = this.model.getDishPrice(this.dish.id) * this.model.getNumberOfGuests();
 		}
 	}
+	
 	render() {
 		if (this.price) {
 			return /* template */ `

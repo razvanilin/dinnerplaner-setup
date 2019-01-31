@@ -3,6 +3,7 @@ class HomeView {
     this.container = container;
     this.startBtn = null;
   }
+  
   render() {
     var content = /* template */ `
     <div class="header d-flex align-items-center justify-content-center">

@@ -5,12 +5,13 @@ class DishDetailView {
 		this.dish = dish;
 		this.addToMenuBtn = null;
 		this.backBtn = null;
-
 		this.model.numberOfGuestsObs.addObserver(this);
 	}
+	
 	update(payload) {
 		this.renderIngredientItems();
 	}
+
 	render(dish) {
 		this.container.html(/* template */ `
 			<div class="scroll-view full">
@@ -58,6 +59,7 @@ class DishDetailView {
 			`);
 		this.afterRender();
 	}
+
 	renderIngredientItems() {
 		console.log(this.dish);
 		var ingredientItems = '';
