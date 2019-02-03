@@ -6,6 +6,15 @@ class MainController{
         this.sideBarController = null;
         this.dishSearchController = null;
         this.dishDetailController = null;
+        
+        this.getRecipes();
+    }
+    getRecipes() {
+        var networkService = new NetworkService();
+        networkService.getRecipes()
+        .then(data => {
+            console.log(data)
+        })
     }
     renderView(dishId){
         this.view.render(dishId);
