@@ -5,8 +5,13 @@ class DishSearchView {
 		this.textInput = null;
 		this.selectInput = null;
 		this.searchBtn = null;
+		
+		this.model.getAllDishes()
+		this.model.dishesObs.addObserver(this);
 	}
-
+	update(payload) {
+		this.renderDishItems();
+	}
 	render() {
 		this.container.html(/* template */ `
 			<div class="container border-bottom">
@@ -34,7 +39,9 @@ class DishSearchView {
 				<div class="spacing-small"></div>
 				<div class="container">
 					<div id="dishItems" class="row justify-content-center justify-content-md-start dishes">
-						${this.renderDishItems()}
+						<div class="spinner-border m-5" role="status">
+							<span class="sr-only">Loading...</span>
+						</div>
 					</div>
 				</div>
 				<div class="spacing-small"></div>
@@ -45,16 +52,20 @@ class DishSearchView {
 	
 	renderDishItems() {
 		var dishItems = '';
-		this.model.getAllDishes().map((dish, index) => {
-			const dishItem = new DishItemView(dish);
-			dishItems = dishItems + dishItem.render();
-		});
-		return dishItems;
+		if (this.model.dishes.length) {
+			this.model.dishes.map((dish, index) => {
+				console.log(dish);
+				const dishItem = new DishItemView(dish);
+				dishItems = dishItems + dishItem.render();
+			});
+			this.container.find('#dishItems').html(dishItems);
+		}
 	}
 
 	afterRender() {
 		this.textInput = this.container.find("#textInput");
 		this.selectInput = this.container.find("#selectInput");
-		this.searchBtn = this.container.find("#searchBtn")
+		this.searchBtn = this.container.find("#searchBtn");
+		this.renderDishItems();
 	}
 }

@@ -5,9 +5,11 @@ class DinnerModel {
 		this.searchString = '';
 		this.searchType = '';
 		this.numberOfGuests = 1;
+		this.dishes = [];
 		this.menu = [];
 		
 		this.numberOfGuestsObs = new Observable();
+		this.dishesObs = new Observable();
 	}
 
 	setSearchString(string) {
@@ -44,10 +46,6 @@ class DinnerModel {
 
 	//Returns all the dishes on the menu.
 	getFullMenu() {
-		networkService.getRecipes()
-			.then(data => {
-				console.log(this.mapDish(data.recipes[0]));
-			})
 		return this.menu;
 	}
 
@@ -103,6 +101,15 @@ class DinnerModel {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	getAllDishes() {
+
+		networkService.getDishes()
+			.then(data => {
+				console.log(data);
+				this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish))
+				this.dishesObs.updateValue(this.menu);
+			})
+
+		/*
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
 
@@ -124,6 +131,7 @@ class DinnerModel {
 			}
 			return type === '' ? found : dish.type == type && found;
 		});
+		*/
 	}
 
 	//function that returns a dish of specific ID
@@ -135,21 +143,21 @@ class DinnerModel {
 		}
 	}
 
-	mapDish(dish) {
+	mapDish(baseUri, dish) {
 		return {
-			'id': dish.id,
-			'name': dish.title,
-			'type': dish.dishTypes[0],
-			'image': dish.image,
-			'description': dish.instructions,
-			'ingredients': dish.extendedIngredients.map(ingredient => {
+			'id': dish.id ? dish.id : null,
+			'name': dish.title ? dish.title : null,
+			'type': dish.dishTypes ? dish.dishTypes : null,
+			'image': dish.image ? baseUri + dish.image : null,
+			'description': dish.instructions ? dish.instructions : null,
+			'ingredients': dish.extendedIngredients ? dish.extendedIngredients.map(ingredient => {
 					return {
 						'name': ingredient.originalName,
 						'quantity': ingredient.amount,
 						'unit': ingredient.unit,
 						'price': null,
 					}
-				}),
+				}) : null,
 		}
 	}
 }
@@ -161,7 +169,8 @@ class DinnerModel {
 // defining the unit i.e. "g", "slices", "ml". Unit
 // can sometimes be empty like in the example of eggs where
 // you just say "5 eggs" and not "5 pieces of eggs" or anything else.
-const dishes = [{
+
+const dishesOld = [{
 	'id': 1,
 	'name': 'French toast',
 	'type': 'starter',

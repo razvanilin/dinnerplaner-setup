@@ -79,8 +79,11 @@ a:hover {
 }
 
 .label {
-    background-color: #e7e7e7;
     padding: 10px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
 }
 .label.normal-padding {
     padding-left: 15px;
@@ -96,6 +99,8 @@ a:hover {
 }
 .item-box {
     height: 100%;
+    display: block;
+    background-color: #e7e7e7;
     color: #000;
 }
 .item-box img {
@@ -106,9 +111,6 @@ a:hover {
 .item-column {
     max-width: 300px;
     margin-bottom: 30px;
-}
-.item-column:last-child {
-    margin-bottom: 0px;
 }
 
 
