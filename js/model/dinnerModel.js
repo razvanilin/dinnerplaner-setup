@@ -1,3 +1,5 @@
+var networkService = new NetworkService();
+
 class DinnerModel {
 	constructor() {
 		this.searchString = '';
@@ -5,11 +7,8 @@ class DinnerModel {
 		this.numberOfGuests = 1;
 		this.menu = [];
 		
-		this.numberOfGuestsObs = new Observable(1);
+		this.numberOfGuestsObs = new Observable();
 	}
-	//TODO Lab 1 implement the data structure that will hold number of guest
-	// and selected dishes for the dinner menu
-
 
 	setSearchString(string) {
 		this.searchString = string;
@@ -33,13 +32,11 @@ class DinnerModel {
 	}
 	
 	getNumberOfGuests() {
-		//TODO Lab 1
 		return this.numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
 	getSelectedDish(type) {
-		//TODO Lab 1
 		return this.menu.filter(function (dish) {
 			return dish.type == type;
 		});
@@ -47,13 +44,15 @@ class DinnerModel {
 
 	//Returns all the dishes on the menu.
 	getFullMenu() {
-		//TODO Lab 1
+		networkService.getRecipes()
+			.then(data => {
+				console.log(this.mapDish(data.recipes[0]));
+			})
 		return this.menu;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	getAllIngredients() {
-		//TODO Lab 1
 		var ingredients = [];
 
 		this.menu.forEach(function (dish) {
@@ -77,9 +76,7 @@ class DinnerModel {
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	getTotalMenuPrice() {
-		//TODO Lab 1
 		var price = 0;
-
 		var allIngredients = this.getAllIngredients();
 
 		allIngredients.forEach(function (ingredient) {
@@ -91,14 +88,12 @@ class DinnerModel {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	addDishToMenu(id) {
-		//TODO Lab 1 
+	addDishToMenu(id) { 
 		this.menu.push(this.getDish(id));
 	}
 
 	//Removes dish from menu
 	removeDishFromMenu(id) {
-		//TODO Lab 1
 		return this.menu.filter(function(dish) {
 			return dish.id != id;
 		})
@@ -137,6 +132,24 @@ class DinnerModel {
 			if(dishes[key].id == id) {
 				return dishes[key];
 			}
+		}
+	}
+
+	mapDish(dish) {
+		return {
+			'id': dish.id,
+			'name': dish.title,
+			'type': dish.dishTypes[0],
+			'image': dish.image,
+			'description': dish.instructions,
+			'ingredients': dish.extendedIngredients.map(ingredient => {
+					return {
+						'name': ingredient.originalName,
+						'quantity': ingredient.amount,
+						'unit': ingredient.unit,
+						'price': null,
+					}
+				}),
 		}
 	}
 }

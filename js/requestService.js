@@ -1,8 +1,8 @@
 class RequestService {
-  async getRequest(url, headers) {
+  async getRequest(url, key) {
     const options = {
       method: 'GET',
-      headers: headers,
+      headers: { 'content-type': 'application/json', 'X-Mashape-Key': key },
     };
     let data = await (await (fetch(url, options)
       .then(res => {
