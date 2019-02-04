@@ -109,7 +109,7 @@ class DinnerModel {
 		this.menu = this.menu.filter(function(dish) {
 			return dish.id != id;
 		})
-		this.menuObs.updateValue(this.menu, 'menu updated');
+		this.menuObs.updateValue(this.menu, 'element removed');
 		
 	}
 

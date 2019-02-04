@@ -2,11 +2,21 @@ class SideBarController {
     constructor(view, model) {
         this.view = view;
         this.model = model;
+
+        this.model.menuObs.addObserver(this);
+
     }
 
     renderView() {
         this.view.render();
         this.addEventListeners();
+    }
+
+    update(payload) {
+        if (payload.message == "element removed") {
+            this.addEventListenersList();
+        }
+        
     }
 
     addEventListeners() {
@@ -16,16 +26,17 @@ class SideBarController {
 
         this.view.confirmBtn.on("click", () => {
             navigate('overview');
-        })
+        })     
+        
+        this.addEventListenersList();
+    }
 
-        this.view.removeBtn.map((index, btn) => {            
+    addEventListenersList() {
+        this.view.removeBtn.map((index, btn) => {
             $(btn).on("click", (e) => {
                 var toRemove = e.currentTarget.id;
                 this.model.removeDishFromMenu(toRemove);
             })
-            
-            
-        })        
-    
+        })  
     }
 }

@@ -13,10 +13,10 @@ class Observable {
     this.observers.splice(index, 1);
   }
 
-  updateValue(value) {
+  updateValue(value, message = 'value updated') {
     this.oldValue = this.value;
     this.value = value || 0;
-    this.notify({ value: value, oldValue: this.oldValue, message: 'value updated' });
+    this.notify({ value: value, oldValue: this.oldValue, message });
   }
 
   getValue() {
