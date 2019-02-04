@@ -17,7 +17,7 @@ class MainController{
         if (!dishId) {
             this.renderDishSearch();
         } else {
-            this.renderDishDetail(this.model.getDish(dishId));
+            this.renderDishDetail(dishId);
         }
     }
     renderMobileBar() {
@@ -35,9 +35,9 @@ class MainController{
         this.dishSearchController = new DishSearchController(dishSearchView, this.model)
         this.dishSearchController.renderView();
     }
-    renderDishDetail(dish) {
-        var dishDetailView = new DishDetailView(this.view.childContainers.dishDetail, this.model, dish);
-        this.dishDetailController = new DishDetailController(dishDetailView, this.model, dish)
+    renderDishDetail(dishId) {
+        var dishDetailView = new DishDetailView(this.view.childContainers.dishDetail, this.model);
+        this.dishDetailController = new DishDetailController(dishDetailView, this.model, dishId)
         this.dishDetailController.renderView();
     }
 }

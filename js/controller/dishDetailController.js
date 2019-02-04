@@ -1,8 +1,16 @@
 class DishDetailController {
-    constructor(view, model, dish) {
+    constructor(view, model, dishId) {
         this.view = view;
         this.model = model;
-        this.dish = dish;
+        this.dishId = dishId;
+        this.dish = null;
+
+        this.model.singleDishObs.addObserver(this);
+        this.model.getDish(dishId);
+    }
+
+    update(payload) {
+        this.renderView();
     }
 
     addEventListeners() {
@@ -17,7 +25,12 @@ class DishDetailController {
     }
 
     renderView() {
-        this.view.render(this.dish);
-        this.addEventListeners();
+        if (this.model.singleDish && this.model.singleDish.id == this.dishId) {
+            this.dish = this.model.singleDish;
+            this.view.render();
+            this.addEventListeners();
+        } else {
+            this.view.renderLoading();
+        }
     }
 }

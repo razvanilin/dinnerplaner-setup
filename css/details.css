@@ -8,8 +8,6 @@
 
 .ingredients-color {
     background-color: rgb(253, 229, 153);
-    box-shadow: 2px 2px;
-    border: 1px solid black;
 }
 
 .btn-add-menu {
@@ -19,5 +17,5 @@
 }
 
 .small-padding-box {
-    padding: 15px;
+    padding: 30px;
 }

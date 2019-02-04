@@ -10,7 +10,7 @@ class DishPreparationView {
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="media flex-column flex-md-row align-items-start">
-						<img class="mr-4" src="images/${this.dish.image}" alt="Generic placeholder image">
+						<img class="mr-4" src="${this.dish.image}" alt="Generic placeholder image">
 						<div class="spacing-x-small d-lg-none"></div>
 						<div class="media-body">
 							<h2 class="mt-0">${this.dish.name}</h2>
