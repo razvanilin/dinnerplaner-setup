@@ -18,6 +18,4 @@ class NetworkService {
     var url = `${BASE_URL}/recipes/search?number=${limit}&type=${type}&query=${query}`;
     return requestService.getRequest(url, API_KEY);
   }
-
-  //TODO get filter types...
 }
