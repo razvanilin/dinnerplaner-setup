@@ -6,9 +6,9 @@ class ListItemView {
 	}
 	render() {
 		return /* template */ `
-		<div class="list-item d-flex justify-content-between text-danger">
-			<span>${this.name}</span>
-			<span>${this.numberOfGuests} x ${this.price}</span>
+		<div class="list-item row no-gutters justify-content-between text-danger">
+			<span class="col ellipsis" style="padding-right: 15px;">${this.name}</span>
+			<span class="col-auto">${this.numberOfGuests} x ${this.price}</span>
 		</div>
 		`;
 	}

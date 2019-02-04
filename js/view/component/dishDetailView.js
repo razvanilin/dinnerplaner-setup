@@ -39,7 +39,7 @@ class DishDetailView {
 							<div class="spacing-small"></div>
 							<h1>${this.model.singleDish.name}</h1>
 							<div class="spacing-x-small"></div>
-							<img class="d-block" src="${this.model.singleDish.image}" alt="" width="300">
+							<img class="d-block" src="${this.model.singleDish.image}">
 							<div class="spacing-x-small"></div>
 							<p style="text-transform: capitalize;">${this.model.singleDish.type}</p>
 							<div class="spacing-small d-lg-none"></div>
@@ -47,17 +47,20 @@ class DishDetailView {
 						<div class="col-md-12 col-lg-7">
 							<div class="ingredients-color small-padding-box">
 								<h3>Ingredients for <span id="numberOfPersons"></span> people</h3>
+								<div class="spacing-x-small"></div>
 								<div class="line"></div>
+								<div class="spacing-x-small"></div>
 								<div id="ingredientList"></div>
 								<div class="line"></div>
-								<div class="row align-items-center gray-border-top total-display">
-									<div class="col-8 text-left"></div>
-									<div id="totalPrice" class="col-2 text-right"></div>
-									<div class="col-2 text-right">SEK</div>
+								<div class="spacing-x-small"></div>
+								<div class="row align-items-center gray-border-top total-display justify-content-between">
+									<div id="totalPrice" class="col-auto"></div>
+									<div class="col-auto">
+										<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
+											<i class="fas fa-plus"></i> Add to menu
+										</a>
+									</div>
 								</div>
-								<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
-									<i class="fas fa-plus"></i> Add to menu
-								</a>
 							</div>
 						</div>
 					</div>
@@ -80,17 +83,16 @@ class DishDetailView {
 		this.model.singleDish.ingredients.map((ingredient, index) => {
 			ingredientItems = ingredientItems +  /* template */ `
 				<div class="row align-items-center">
-					<div class="col-3">${ingredient.quantity * this.model.getNumberOfGuests() + ' ' + ingredient.unit}</div>
-					<div class="col-5">${ingredient.name}</div>
-					<div class="col-2 text-right">${ingredient.price * this.model.getNumberOfGuests()}</div>
-					<div class="col-2 text-right">SEK</div>
+					<div class="col-4">${ingredient.quantity * this.model.getNumberOfGuests() + ' ' + ingredient.unit}</div>
+					<div class="col-8">${ingredient.name}</div>
 				</div>
+				<div class="spacing-x-small"></div>
 				`;
 		});
 		
 		this.container.find("#ingredientList").html(ingredientItems);
 		this.container.find("#numberOfPersons").html(this.model.getNumberOfGuests());
-		this.container.find("#totalPrice").html(this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests());
+		this.container.find("#totalPrice").html('<b>' + this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests() + ' SEK</b> / Person');
 	}
 
 	afterRender() {

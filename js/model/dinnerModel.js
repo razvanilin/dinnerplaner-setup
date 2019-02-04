@@ -81,15 +81,6 @@ class DinnerModel {
 	//Returns the price of the dish
 	getDishPrice(dish) {
 		return dish.price;
-		var dish = this.getDish(id);
-		var price = 0;
-
-		
-		dish.ingredients.forEach(function (ingredient) {
-			price += ingredient.price;
-		})
-
-		return price;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -165,7 +156,7 @@ class DinnerModel {
 			'type': dish.dishTypes ? dish.dishTypes : null,
 			'image': dish.image && baseUri ? baseUri + dish.image : dish.image,
 			'description': dish.instructions ? dish.instructions : null,
-			'price': dish.pricePerServing ? dish.pricePerServing : null,
+			'price': dish.pricePerServing ? this.round(dish.pricePerServing, 0) : null,
 			'ingredients': dish.extendedIngredients ? dish.extendedIngredients.map(ingredient => {
 					return {
 						'name': ingredient.originalName,

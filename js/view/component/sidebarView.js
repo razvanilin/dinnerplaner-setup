@@ -24,16 +24,16 @@ class SideBarView {
 						<input id="numberOfGuestsInput" type="number" name="numberOfGuests" class="form-control" value="${this.model.getNumberOfGuests()}" min="1">
 					</div>
 				</div>
-				<div class="label d-flex justify-content-between">
+				<div class="label background d-flex justify-content-between">
 					<span>Dish name</span>
 					<span>Cost</span>
 				</div>
 				<div id="list" class="padding no-padding-bottom">
 				</div>
 				<div class="padding">
-					<div class="text-right text-danger">Total <span id="totalPrice"></span> SEK</div>
+					<div class="text-right text-danger"><b>Total <span id="totalPrice"></span> SEK</b></div>
 					<div class="spacing"></div>
-					<button id="confirmBtn" class="btn btn-block btn-lg btn-primary-color" ${!this.model.getFullMenu().length ? 'disabled' : ''}>Confirm Dinner <i class="fas fa-arrow-right"></i></button>
+					<button id="confirmBtn" class="btn btn-block btn-lg btn-primary-color icon-right-animation" ${!this.model.getFullMenu().length ? 'disabled' : ''}>Confirm Dinner <i class="fas fa-arrow-right"></i></button>
 				</div>
 			</div>
 		`);
@@ -47,7 +47,7 @@ class SideBarView {
 		});
 		listedItems = listedItems === '' ? 'No added dishes' : listedItems;
 		this.container.find('#list').html(listedItems);
-		this.container.find('#totalPrice').html(this.model.getTotalMenuPrice() * this.model.getNumberOfGuests())
+		this.container.find('#totalPrice').html(this.model.getTotalMenuPrice())
 	}
 	afterRender() {
 		this.renderListedItems();

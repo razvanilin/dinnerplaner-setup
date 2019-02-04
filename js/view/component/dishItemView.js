@@ -13,10 +13,12 @@ class DishItemView {
 			return /* template */ `
 				<div class="col-md-4 col-lg-2 item-column">
 					<div class="item-box">
-						<img src="${this.dish.image}" alt="">
+						<div class="overflow-hidden">
+							<img src="${this.dish.image}" alt="">
+						</div>
 						<div class="label text-center">${this.dish.name}</div>
-						<div class="spacing-x-small"></div>
-						<b class="text-danger text-center text-lg-right d-block">${this.price} SEK</b>
+						<b class="text-danger text-center d-block">${this.price} SEK</b>
+						<div class="spacing-small"></div>
 					</div>
 				</div>
         `
@@ -24,7 +26,9 @@ class DishItemView {
 			return /* template */ `
 				<div class="col-sm-6 col-md-4 item-column">
 					<a onClick="navigate('select-dish', ${this.dish.id})" class="item-box">
-						<img src="${this.dish.image}" alt="">
+						<div class="overflow-hidden">
+							<img src="${this.dish.image}" alt="">
+						</div>
 						<div class="label text-center">${this.dish.name}</div>
 					</a>
 				</div>
