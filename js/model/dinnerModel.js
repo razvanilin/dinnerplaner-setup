@@ -168,10 +168,15 @@ class DinnerModel {
 			'ingredients': dish.extendedIngredients ? dish.extendedIngredients.map(ingredient => {
 					return {
 						'name': ingredient.originalName,
-						'quantity': ingredient.amount,
+						'quantity': this.round(ingredient.amount, 1),
 						'unit': ingredient.unit,
 					}
 				}) : null,
 		}
+	}
+	
+	round(value, precision) {
+		var multiplier = Math.pow(10, precision || 0);
+		return Math.round(value * multiplier) / multiplier;
 	}
 }
