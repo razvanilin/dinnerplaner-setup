@@ -63,8 +63,9 @@ class DishSearchView {
 		var typeItems = '';
 		this.model.type.forEach(type => {
 			typeItems += /* template */ `
-				<option value="${type}" ${this.model.getSearchType() == "${type}" ? 'selected' : ''}>${type == "" ? "All" : type}</option>
+				<option value="${type}" ${this.model.getSearchType() == type ? 'selected' : ''}>${type == "" ? "All" : type}</option>
 			`
+			
 		});
 		return typeItems;
 		

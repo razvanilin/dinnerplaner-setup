@@ -123,8 +123,6 @@ class DinnerModel {
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
 
-		// TODO get filtered items...
-
 		if (type || filter) {
 			networkService.getDishesByFilter(filter, type)
 				.then(data => {
@@ -138,30 +136,6 @@ class DinnerModel {
 					this.dishesObs.updateValue(this.menu);
 				});
 		}
-
-		/*
-		var type = this.searchType.toLowerCase();
-		var filter = this.searchString.toLowerCase();
-
-		return dishes.filter((dish) => {
-			let found = true;
-			if (!type && !filter) {				
-				return true; // return all the dishes for the case no filter is set and all is selected
-			}
-			if (filter) {
-				found = false;
-				dish.ingredients.forEach((ingredient) => {
-					if (ingredient.name.toLowerCase().indexOf(filter) != -1) {
-						found = true;
-					}
-				});
-				if (dish.name.toLowerCase().indexOf(filter) != -1) {
-					found = true;
-				}
-			}
-			return type === '' ? found : dish.type == type && found;
-		});
-		*/
 	}
 
 	//function that returns a dish of specific ID
