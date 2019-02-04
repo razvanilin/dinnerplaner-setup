@@ -16,7 +16,7 @@ class DishItemView {
 						<div class="overflow-hidden">
 							<img src="${this.dish.image}" alt="">
 						</div>
-						<div class="label text-center">${this.dish.name}</div>
+						<div class="label mh text-center">${this.dish.name}</div>
 						<b class="text-orange text-center d-block">${this.price} SEK</b>
 						<div class="spacing-small"></div>
 					</div>
@@ -29,7 +29,7 @@ class DishItemView {
 						<div class="overflow-hidden">
 							<img src="${this.dish.image}" alt="">
 						</div>
-						<div class="label text-center">${this.dish.name}</div>
+						<div class="label mh text-center">${this.dish.name}</div>
 					</a>
 				</div>
 			`
