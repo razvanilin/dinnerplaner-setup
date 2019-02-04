@@ -106,12 +106,24 @@ class DinnerModel {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	getAllDishes() {
+		var type = this.searchType.toLowerCase();
+		var filter = this.searchString.toLowerCase();
 
-		networkService.getDishes()
-			.then(data => {
-				this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish))
-				this.dishesObs.updateValue(this.menu);
-			})
+		// TODO get filtered items...
+
+		if (type || filter) {
+			networkService.getDishesByFilter(filter, type)
+				.then(data => {
+					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
+					this.dishesObs.updateValue(this.menu);
+				});
+		} else {
+			networkService.getDishes()
+				.then(data => {
+					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
+					this.dishesObs.updateValue(this.menu);
+				});
+		}
 
 		/*
 		var type = this.searchType.toLowerCase();

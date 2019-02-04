@@ -13,4 +13,11 @@ class NetworkService {
     var url = `${BASE_URL}/recipes/search?number=${limit}`;
     return requestService.getRequest(url, API_KEY);
   }
+
+  getDishesByFilter(query, type, limit = 9) {
+    var url = `${BASE_URL}/recipes/search?number=${limit}&type=${type}&query=${query}`;
+    return requestService.getRequest(url, API_KEY);
+  }
+
+  //TODO get filter types...
 }
