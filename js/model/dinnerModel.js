@@ -68,6 +68,7 @@ class DinnerModel {
 		return 0;
 		var dish = this.getDish(id);
 		var price = 0;
+
 		
 		dish.ingredients.forEach(function (ingredient) {
 			price += ingredient.price;
@@ -154,6 +155,7 @@ class DinnerModel {
 	getDish(id) {
 		networkService.getDish(id)
 			.then(data => {
+				console.log(data);
 				this.singleDish = this.mapDish(null, data);
 				this.singleDishObs.updateValue(this.singleDish);
 			});
@@ -174,12 +176,12 @@ class DinnerModel {
 			'type': dish.dishTypes ? dish.dishTypes : null,
 			'image': dish.image && baseUri ? baseUri + dish.image : dish.image,
 			'description': dish.instructions ? dish.instructions : null,
+			'price': dish.pricePerServing ? dish.pricePerServing : null,
 			'ingredients': dish.extendedIngredients ? dish.extendedIngredients.map(ingredient => {
 					return {
 						'name': ingredient.originalName,
 						'quantity': ingredient.amount,
 						'unit': ingredient.unit,
-						'price': null,
 					}
 				}) : null,
 		}
