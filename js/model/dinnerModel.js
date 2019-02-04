@@ -5,7 +5,8 @@ class DinnerModel {
 		this.searchString = '';
 		this.searchType = '';
 		this.numberOfGuests = 1;
-		
+		this.showErrorMessage = false;
+
 		this.dishes = [];
 		this.singleDish = null;
 		this.menu = [];
@@ -24,6 +25,7 @@ class DinnerModel {
 			"drink"
 		]
 		
+		this.showErrorMessageObs = new Observable();
 		this.numberOfGuestsObs = new Observable();
 		this.dishesObs = new Observable();
 		this.singleDishObs = new Observable();
@@ -121,12 +123,24 @@ class DinnerModel {
 				.then(data => {
 					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
 					this.dishesObs.updateValue(this.menu);
+					this.showErrorMessage = false;
+				}).catch(error => {
+					console.log('Error: ' + error);
+					this.showErrorMessage = true;
+					this.dishesObs.updateValue(this.menu);
+					this.showErrorMessageObs.updateValue(error);
 				});
 		} else {
 			networkService.getDishes(limit)
 				.then(data => {
 					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
 					this.dishesObs.updateValue(this.menu);
+					this.showErrorMessage = false;
+				}).catch(error => {
+					console.log('Error: ' + error);
+					this.showErrorMessage = true;
+					this.dishesObs.updateValue(this.menu);
+					this.showErrorMessageObs.updateValue(error);
 				});
 		}
 	}
@@ -138,15 +152,13 @@ class DinnerModel {
 				console.log(data);
 				this.singleDish = this.mapDish(null, data);
 				this.singleDishObs.updateValue(this.singleDish);
+				this.showErrorMessage = false;
+			}).catch(error => {
+				console.log('Error: ' + error);
+				this.showErrorMessage = true;
+				this.singleDishObs.updateValue(error);
+				this.showErrorMessageObs.updateValue(error);
 			});
-
-		/*
-		for(let key in dishes){
-			if(dishes[key].id == id) {
-				return dishes[key];
-			}
-		}
-		*/
 	}
 
 	mapDish(baseUri, dish) {

@@ -143,6 +143,24 @@ a.item-box:hover img {
     margin-bottom: 30px;
 }
 
+.text-orange {
+    color: #f3942e;
+}
+.alert {
+    margin-bottom: 0px;
+    text-align: center;
+    background-color: #f46b6b;
+    border: none;
+    color: #fff;
+    border-radius: 0px;
+}
+.in-content-error {
+    font-size: 18px;
+    color: #f46b6b;
+}
+.in-content-error i {
+    font-size: 48px;
+}
 
 .btn-primary-color {
     background-color: rgb(244, 178, 107);

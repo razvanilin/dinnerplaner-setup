@@ -3,6 +3,7 @@ class MainView {
     this.container = container;
     this.model = model;
     this.childContainers = {
+      errorBar: null,
       mobileBar: null,
       sideBar: null,
       dishDetail: null,
@@ -12,6 +13,7 @@ class MainView {
 
   render(dishId) {
     var content = /* template */ `
+      <div id="errorBarView"></div>
       <div id="mobileBarView"></div>
       <div class="header d-flex align-items-center justify-content-center">
         <h1>Dinner Planner</h1>
@@ -31,6 +33,7 @@ class MainView {
   }
   
   afterRender() {
+    this.childContainers.errorBar = this.container.find("#errorBarView");
     this.childContainers.mobileBar = this.container.find("#mobileBarView");
     this.childContainers.sideBar = this.container.find("#sideBarView");
     this.childContainers.dishSearch = this.container.find("#dishSearchView");

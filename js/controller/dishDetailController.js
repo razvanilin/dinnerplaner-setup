@@ -10,7 +10,11 @@ class DishDetailController {
     }
 
     update(payload) {
-        this.renderView();
+        if (!this.model.showErrorMessage) {
+            this.renderView();
+        } else {
+            this.view.renderError();
+        }
     }
 
     addEventListeners() {

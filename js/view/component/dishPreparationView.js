@@ -20,7 +20,7 @@ class DishPreparationView {
 				</div>
 				<div class="col-lg-6">
 					<div class="spacing-small d-lg-none"></div>
-					<h4>PREPARATION</h4>
+					<h4>Preparation</h4>
 					<p>${this.dish.description}</p>
 				</div>
 			</div>

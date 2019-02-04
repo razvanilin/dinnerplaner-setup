@@ -14,7 +14,7 @@ class MobileBarView {
       <div class="mobile-bar d-flex d-md-none justify-content-between align-items-center">
         <h2>My dinner</h2>
         <div class="d-flex">
-          <span class="text-danger" id="totalPrice"></span>
+          <span class="text-orange" id="totalPrice"></span>
           <div class="h-spacing-small"></div>
           <a id="mobile-button" class="mobile-button"><i class="fas fa-bars"></i></a>
         </div>

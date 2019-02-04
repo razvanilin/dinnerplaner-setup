@@ -17,7 +17,7 @@ class DishItemView {
 							<img src="${this.dish.image}" alt="">
 						</div>
 						<div class="label text-center">${this.dish.name}</div>
-						<b class="text-danger text-center d-block">${this.price} SEK</b>
+						<b class="text-orange text-center d-block">${this.price} SEK</b>
 						<div class="spacing-small"></div>
 					</div>
 				</div>

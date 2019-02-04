@@ -6,6 +6,12 @@ class MainController{
         this.sideBarController = null;
         this.dishSearchController = null;
         this.dishDetailController = null;
+
+        this.model.showErrorMessageObs.addObserver(this);
+    }
+    update(payload) {
+        console.log('showErrorBar');
+        this.renderErrorBar();
     }
     renderView(dishId){
         this.view.render(dishId);
@@ -19,6 +25,11 @@ class MainController{
         } else {
             this.renderDishDetail(dishId);
         }
+    }
+    renderErrorBar() {
+        var errorBarView = new ErrorBarView(this.view.childContainers.errorBar, this.model);
+        this.errorBarController = new ErrorBarController(errorBarView, this.model)
+        this.errorBarController.renderView();
     }
     renderMobileBar() {
         var mobileBarView = new MobileBarView(this.view.childContainers.mobileBar, this.model);

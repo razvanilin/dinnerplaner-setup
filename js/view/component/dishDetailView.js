@@ -6,9 +6,13 @@ class DishDetailView {
 		this.backBtn = null;
 		this.model.numberOfGuestsObs.addObserver(this);
 	}
-	
+
 	update(payload) {
-		this.renderIngredientItems();
+		if (!this.model.showErrorMessage) {
+			this.renderIngredientItems();
+		} else {
+			this.renderError();
+		}
 	}
 
 	renderLoading() {
@@ -69,7 +73,7 @@ class DishDetailView {
 					<div class="spacing-small"></div>
 					
 					<div class="div-preparation">
-						<h1>PREPARATION</h1>
+						<h1>Preparation</h1>
 						<p>${this.model.singleDish.description}</p>
 					</div>
 					<div class="spacing-small"></div>
@@ -94,6 +98,24 @@ class DishDetailView {
 		this.container.find("#ingredientList").html(ingredientItems);
 		this.container.find("#numberOfPersons").html(this.model.getNumberOfGuests());
 		this.container.find("#totalPrice").html('<b>' + this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests() + ' SEK</b> / Person');
+	}
+
+	renderError() {
+		this.container.html(/* template */ `
+			<div class="scroll-view full">
+				<div class="spacing-small"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-12 text-center in-content-error">
+							<div class="spacing"></div>
+							<i class="fas fa-cat"></i>
+							<div class="spacing-small"></div>
+							Oups something went wrong, refresh your browser or try again later...
+						</div>
+					</div>
+				</div>
+			</div>
+		`);
 	}
 
 	afterRender() {

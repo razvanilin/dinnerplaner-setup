@@ -8,11 +8,13 @@ class DishSearchView {
 		
 		this.model.getAllDishes()
 		this.model.dishesObs.addObserver(this);
-
 	}
 	update(payload) {
-		this.renderDishItems();
-		
+		if (!this.model.showErrorMessage) {
+			this.renderDishItems();
+		} else {
+			this.renderError();
+		}
 	}
 	render() {
 		this.container.html(/* template */ `
@@ -66,6 +68,17 @@ class DishSearchView {
 
 			this.container.find('#dishItems').html(dishItems);
 		}
+	}
+
+	renderError() {
+		const error = `
+					<div class="col-12 text-center in-content-error">
+						<div class="spacing"></div>
+						<i class="fas fa-cat"></i>
+						<div class="spacing-small"></div>
+						Oups something went wrong, refresh your browser or try again later...
+					</div>`;
+		this.container.find('#dishItems').html(error);
 	}
 
 	renderTypes() {

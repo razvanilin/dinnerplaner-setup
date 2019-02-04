@@ -31,7 +31,7 @@ class SideBarView {
 				<div id="list" class="padding no-padding-bottom">
 				</div>
 				<div class="padding">
-					<div class="text-right text-danger"><b>Total <span id="totalPrice"></span> SEK</b></div>
+					<div class="text-right text-orange"><b>Total <span id="totalPrice"></span> SEK</b></div>
 					<div class="spacing"></div>
 					<button id="confirmBtn" class="btn btn-block btn-lg btn-primary-color icon-right-animation" ${!this.model.getFullMenu().length ? 'disabled' : ''}>Confirm Dinner <i class="fas fa-arrow-right"></i></button>
 				</div>
