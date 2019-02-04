@@ -112,18 +112,18 @@ class DinnerModel {
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
-	getAllDishes() {
+	getAllDishes(limit = 9) {
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
 
 		if (type || filter) {
-			networkService.getDishesByFilter(filter, type)
+			networkService.getDishesByFilter(filter, type, limit)
 				.then(data => {
 					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
 					this.dishesObs.updateValue(this.menu);
 				});
 		} else {
-			networkService.getDishes()
+			networkService.getDishes(limit)
 				.then(data => {
 					this.dishes = data.results.map(dish => this.mapDish(data.baseUri, dish));
 					this.dishesObs.updateValue(this.menu);

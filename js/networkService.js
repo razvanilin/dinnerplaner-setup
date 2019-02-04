@@ -9,7 +9,7 @@ class NetworkService {
     return requestService.getRequest(url, API_KEY);
   }
   
-  getDishes(limit = 9) {
+  getDishes(limit) {
     var url = `${BASE_URL}/recipes/search?number=${limit}`;
     return requestService.getRequest(url, API_KEY);
   }
