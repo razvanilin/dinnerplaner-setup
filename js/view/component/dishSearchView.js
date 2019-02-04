@@ -43,10 +43,6 @@ class DishSearchView {
 							</div>
 						</div>
 					</div>
-					<div class="spacing-small"></div>
-					<div class="text-center">
-						<a class="btn btn-secondary-color"><i class="fas fa-plus"></i> Show more</a>
-					</div>
 				</div>
 				<div class="spacing-small"></div>
 			</div>
@@ -61,6 +57,13 @@ class DishSearchView {
 				const dishItem = new DishItemView(dish);
 				dishItems = dishItems + dishItem.render();
 			});
+			
+			dishItems = dishItems + `
+					<div class="col-12 text-center">
+						<div class="spacing-small"></div>
+						<a class="btn btn-secondary-color"><i class="fas fa-plus"></i> Show more</a>
+					</div>`;
+
 			this.container.find('#dishItems').html(dishItems);
 		}
 	}
