@@ -17,5 +17,15 @@ class SideBarController {
         this.view.confirmBtn.on("click", () => {
             navigate('overview');
         })
+
+        this.view.removeBtn.map((index, btn) => {            
+            $(btn).on("click", (e) => {
+                var toRemove = e.currentTarget.id;
+                this.model.removeDishFromMenu(toRemove);
+            })
+            
+            
+        })        
+    
     }
 }

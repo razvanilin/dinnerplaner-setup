@@ -101,14 +101,16 @@ class DinnerModel {
 	addDishToMenu() { 
 		//this.menu.push(this.getDish(id));
 		this.menu.push(this.singleDish);
-		this.menuObs.updateValue(this.singleDish, 'menu updated');
+		this.menuObs.updateValue(this.menu, 'menu updated');
 	}
 
 	//Removes dish from menu
 	removeDishFromMenu(id) {
-		return this.menu.filter(function(dish) {
+		this.menu = this.menu.filter(function(dish) {
 			return dish.id != id;
 		})
+		this.menuObs.updateValue(this.menu, 'menu updated');
+		
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")

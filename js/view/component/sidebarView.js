@@ -4,6 +4,7 @@ class SideBarView {
 		this.model = model;
 		this.numberOfGuestInput = null;
 		this.confirmBtn = null;
+		this.removeBtn = null;
 
 		this.model.numberOfGuestsObs.addObserver(this);
 		this.model.menuObs.addObserver(this);
@@ -42,7 +43,7 @@ class SideBarView {
 	renderListedItems() {
 		var listedItems = '';
 		this.model.getFullMenu().map((dish, index) => {
-			const listItem = new ListItemView(dish.name, this.model.getDishPrice(dish), this.model.getNumberOfGuests());
+			const listItem = new ListItemView(dish.id, dish.name, this.model.getDishPrice(dish), this.model.getNumberOfGuests());
 			listedItems = listedItems + listItem.render();
 		});
 		listedItems = listedItems === '' ? 'No added dishes' : listedItems;
@@ -53,5 +54,6 @@ class SideBarView {
 		this.renderListedItems();
 		this.numberOfGuestInput = this.container.find("#numberOfGuestsInput");
 		this.confirmBtn = this.container.find("#confirmBtn");
+		this.removeBtn = this.container.find(".removeBtn");
 	}
 }

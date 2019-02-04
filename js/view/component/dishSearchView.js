@@ -60,7 +60,7 @@ class DishSearchView {
 				dishItems = dishItems + dishItem.render();
 			});
 			
-			dishItems = dishItems + `
+			dishItems = dishItems + /* template */`
 					<div class="col-12 text-center">
 						<div class="spacing-small"></div>
 						<a class="btn btn-secondary-color"><i class="fas fa-plus"></i> Show more</a>
