@@ -35,8 +35,10 @@ class DishSearchView {
 				<div class="spacing-small"></div>
 				<div class="container">
 					<div id="dishItems" class="row justify-content-center justify-content-md-start dishes">
-						<div class="spinner-border m-5" role="status">
-							<span class="sr-only">Loading...</span>
+						<div class="col-md-12 text-center">
+							<div class="spinner-border m-5" role="status">
+								<span class="sr-only">Loading...</span>
+							</div>
 						</div>
 					</div>
 				</div>
