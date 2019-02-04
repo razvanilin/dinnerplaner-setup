@@ -79,8 +79,8 @@ class DinnerModel {
 	}
 
 	//Returns the price of the dish
-	getDishPrice(id) {
-		return 0;
+	getDishPrice(dish) {
+		return dish.price;
 		var dish = this.getDish(id);
 		var price = 0;
 
@@ -95,13 +95,12 @@ class DinnerModel {
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	getTotalMenuPrice() {
 		var price = 0;
-		var allIngredients = this.getAllIngredients();
 
-		allIngredients.forEach(function (ingredient) {
-			price += ingredient.price;
+		this.menu.forEach(function (dish) {
+			price += dish.price;
 		})
 		
-		return price;
+		return price * this.numberOfGuests;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu

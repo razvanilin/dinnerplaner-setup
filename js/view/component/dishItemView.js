@@ -4,7 +4,7 @@ class DishItemView {
 		this.model = model;
 		this.price = 0;
 		if (this.model) {
-			this.price = this.model.getDishPrice(this.dish.id) * this.model.getNumberOfGuests();
+			this.price = this.model.getDishPrice(this.dish) * this.model.getNumberOfGuests();
 		}
 	}
 	

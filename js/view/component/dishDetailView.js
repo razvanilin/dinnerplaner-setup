@@ -90,7 +90,7 @@ class DishDetailView {
 		
 		this.container.find("#ingredientList").html(ingredientItems);
 		this.container.find("#numberOfPersons").html(this.model.getNumberOfGuests());
-		this.container.find("#totalPrice").html(this.model.getDishPrice(this.model.singleDish.id) * this.model.getNumberOfGuests());
+		this.container.find("#totalPrice").html(this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests());
 	}
 
 	afterRender() {

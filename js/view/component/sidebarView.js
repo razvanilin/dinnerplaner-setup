@@ -42,7 +42,7 @@ class SideBarView {
 	renderListedItems() {
 		var listedItems = '';
 		this.model.getFullMenu().map((dish, index) => {
-			const listItem = new ListItemView(dish.name, this.model.getDishPrice(dish.id), this.model.getNumberOfGuests());
+			const listItem = new ListItemView(dish.name, this.model.getDishPrice(dish), this.model.getNumberOfGuests());
 			listedItems = listedItems + listItem.render();
 		});
 		listedItems = listedItems === '' ? 'No added dishes' : listedItems;

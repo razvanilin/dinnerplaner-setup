@@ -24,7 +24,7 @@ class MobileBarView {
     this.afterRender();
   }
   updateDynamicContent() {
-    this.container.find("#totalPrice").html('SEK ' + this.model.getTotalMenuPrice() * this.model.getNumberOfGuests());
+    this.container.find("#totalPrice").html('SEK ' + this.model.getTotalMenuPrice());
   }
   afterRender() {
     this.updateDynamicContent();

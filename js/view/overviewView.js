@@ -56,7 +56,7 @@ class OverviewView {
         <div class="col-md-12 col-lg-2 item-column ">
             <div class="item-box no-background padding-left border-left d-flex flex-column justify-content-end">
                 <b>Total: </b>
-                <b class="text-danger">${this.model.getTotalMenuPrice() * this.model.getNumberOfGuests()} SEK</b>
+                <b class="text-danger">${this.model.getTotalMenuPrice()} SEK</b>
             </div>
         </div>
         `
