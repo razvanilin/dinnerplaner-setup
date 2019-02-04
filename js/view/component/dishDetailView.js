@@ -56,6 +56,7 @@ class DishDetailView {
 								<div class="row align-items-center gray-border-top total-display justify-content-between">
 									<div id="totalPrice" class="col-auto"></div>
 									<div class="col-auto">
+										<div class="spacing-small d-sm-none"></div>
 										<a id="addToMenuBtn" class="btn btn-light btn-primary-color">
 											<i class="fas fa-plus"></i> Add to menu
 										</a>
@@ -83,8 +84,8 @@ class DishDetailView {
 		this.model.singleDish.ingredients.map((ingredient, index) => {
 			ingredientItems = ingredientItems +  /* template */ `
 				<div class="row align-items-center">
-					<div class="col-4">${ingredient.quantity * this.model.getNumberOfGuests() + ' ' + ingredient.unit}</div>
-					<div class="col-8">${ingredient.name}</div>
+					<div class="col-5 col-sm-4">${ingredient.quantity * this.model.getNumberOfGuests() + ' ' + ingredient.unit}</div>
+					<div class="col-7 col-sm-8">${ingredient.name}</div>
 				</div>
 				<div class="spacing-x-small"></div>
 				`;
