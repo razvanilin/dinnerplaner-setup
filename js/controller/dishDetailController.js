@@ -15,7 +15,7 @@ class DishDetailController {
 
     addEventListeners() {
         this.view.addToMenuBtn.on("click", () => {
-            this.model.addDishToMenu(this.dish.id);
+            this.model.addDishToMenu();
             navigate('select');
         });
 

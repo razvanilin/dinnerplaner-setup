@@ -8,9 +8,11 @@ class DishSearchView {
 		
 		this.model.getAllDishes()
 		this.model.dishesObs.addObserver(this);
+
 	}
 	update(payload) {
 		this.renderDishItems();
+		
 	}
 	render() {
 		this.container.html(/* template */ `

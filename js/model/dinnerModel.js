@@ -27,6 +27,7 @@ class DinnerModel {
 		this.numberOfGuestsObs = new Observable();
 		this.dishesObs = new Observable();
 		this.singleDishObs = new Observable();
+		this.menuObs = new Observable();
 	}
 
 	setSearchString(string) {
@@ -104,9 +105,10 @@ class DinnerModel {
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	addDishToMenu(id) { 
+	addDishToMenu() { 
 		//this.menu.push(this.getDish(id));
 		this.menu.push(this.singleDish);
+		this.menuObs.updateValue(this.singleDish, 'menu updated');
 	}
 
 	//Removes dish from menu

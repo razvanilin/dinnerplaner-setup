@@ -6,6 +6,7 @@ class SideBarView {
 		this.confirmBtn = null;
 
 		this.model.numberOfGuestsObs.addObserver(this);
+		this.model.menuObs.addObserver(this);
 	}
 	update(payload) {
 		this.renderListedItems();
