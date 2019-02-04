@@ -65,7 +65,7 @@ class DinnerModel {
 	}
 
 	//Returns all the dishes on the menu.
-	getFullMenu() {
+	getFullMenu() {		
 		return this.menu;
 	}
 
@@ -161,7 +161,7 @@ class DinnerModel {
 			});
 	}
 
-	mapDish(baseUri, dish) {
+	mapDish(baseUri, dish) {		
 		return {
 			'id': dish.id ? dish.id : null,
 			'name': dish.title ? dish.title : null,
