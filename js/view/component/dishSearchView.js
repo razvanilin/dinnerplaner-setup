@@ -5,6 +5,7 @@ class DishSearchView {
 		this.textInput = null;
 		this.selectInput = null;
 		this.searchBtn = null;
+		this.showMoreBtn = null;
 		
 		this.model.getAllDishes()
 		this.model.dishesObs.addObserver(this);
@@ -12,6 +13,7 @@ class DishSearchView {
 	update(payload) {
 		if (!this.model.showErrorMessage) {
 			this.renderDishItems();
+			this.afterRender();
 		} else {
 			this.renderError();
 		}
@@ -49,6 +51,8 @@ class DishSearchView {
 				<div class="spacing-small"></div>
 			</div>
 		`);
+		this.renderDishItems();
+
 		this.afterRender();
 	}
 	
@@ -63,7 +67,7 @@ class DishSearchView {
 			dishItems = dishItems + /* template */`
 					<div class="col-12 text-center">
 						<div class="spacing-small"></div>
-						<a class="btn btn-secondary-color"><i class="fas fa-plus"></i> Show more</a>
+						<a id="showMoreBtn" class="btn btn-secondary-color"><i class="fas fa-plus"></i> Show more</a>
 					</div>`;
 
 			this.container.find('#dishItems').html(dishItems);
@@ -71,7 +75,7 @@ class DishSearchView {
 	}
 
 	renderError() {
-		const error = `
+		const error = /* template */ `
 					<div class="col-12 text-center in-content-error">
 						<div class="spacing"></div>
 						<i class="fas fa-cat"></i>
@@ -97,6 +101,6 @@ class DishSearchView {
 		this.textInput = this.container.find("#textInput");
 		this.selectInput = this.container.find("#selectInput");
 		this.searchBtn = this.container.find("#searchBtn");
-		this.renderDishItems();
+		this.showMoreBtn = this.container.find("#showMoreBtn");		
 	}
 }

@@ -147,6 +147,23 @@ class DinnerModel {
 		}
 	}
 
+	getMoreDishes(limit = 9) {
+		var offset = this.dishes.length;
+		
+		networkService.getMoreDishes(offset, limit)
+			.then(data => {
+				this.dishes = this.dishes.concat(data.results.map(dish => this.mapDish(data.baseUri, dish)));
+				this.dishesObs.updateValue(this.menu);
+				this.showErrorMessage = false;
+				
+			}).catch(error => {
+				console.log('Error: ' + error);
+				this.showErrorMessage = true;
+				this.dishesObs.updateValue(this.menu);
+				this.showErrorMessageObs.updateValue(error);
+			});
+	}
+
 	//function that returns a dish of specific ID
 	getDish(id) {
 		networkService.getDish(id)

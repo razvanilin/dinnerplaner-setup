@@ -18,4 +18,9 @@ class NetworkService {
     var url = `${BASE_URL}/recipes/search?number=${limit}&type=${type}&query=${query}`;
     return requestService.getRequest(url, API_KEY);
   }
+
+  getMoreDishes(offset, limit) {
+    var url = `${BASE_URL}/recipes/search?offset=${offset}&number=${limit}`;
+    return requestService.getRequest(url, API_KEY);
+  }
 }
