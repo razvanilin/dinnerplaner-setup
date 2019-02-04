@@ -9,6 +9,20 @@ class DinnerModel {
 		this.dishes = [];
 		this.singleDish = null;
 		this.menu = [];
+		this.type = [
+			"",
+			"main course",
+			"side dish",
+			"dessert",
+			"appetizer",
+			"salad",
+			"bread",
+			"breakfast",
+			"soup",
+			"beverage",
+			"sauce",
+			"drink"
+		]
 		
 		this.numberOfGuestsObs = new Observable();
 		this.dishesObs = new Observable();
@@ -23,7 +37,7 @@ class DinnerModel {
 		return this.searchString;
 	}
 
-	setSearchType(type) {
+	setSearchType(type) {		
 		this.searchType = type;
 	}
 
