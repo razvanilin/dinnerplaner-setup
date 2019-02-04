@@ -162,7 +162,11 @@ a.item-box:hover img {
 .btn.icon-right-animation:not(:disabled):hover i {
     transform: translateX(4px);
 }
-
+.btn-secondary-color {
+    font-weight: bold;
+    color: #2a2a2a!important;
+    background: #d8d8d8;
+}
 
 .full-vh {
     height: calc(100vh - 100px);
