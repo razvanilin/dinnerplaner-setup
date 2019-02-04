@@ -17,8 +17,10 @@ class DishDetailView {
 				<div class="spacing-small"></div>
 				<div class="container">
 					<div class="row">
-						<div class="spinner-border m-5" role="status">
-							<span class="sr-only">Loading...</span>
+						<div class="col-md-12 text-center">
+							<div class="spinner-border m-5" role="status">
+								<span class="sr-only">Loading...</span>
+							</div>
 						</div>
 					</div>
 				</div>

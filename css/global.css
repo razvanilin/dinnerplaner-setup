@@ -38,7 +38,7 @@ a:hover {
 .header.sub {
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #fff;
+    background-color: #f1f1f1;
     height: auto;
 }
 .mobile-menu {
@@ -117,6 +117,7 @@ a:hover {
 }
 .item-box.no-background {
     background-color: transparent;
+    box-shadow: none;
 }
 .item-box img {
     width: 100%;

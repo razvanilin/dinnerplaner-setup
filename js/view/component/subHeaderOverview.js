@@ -12,7 +12,7 @@ class SubHeaderOverview {
                     <div class="header sub d-flex flex-column flex-md-row align-items-center justify-content-between">
                         <h2>My dinner: ${this.model.getNumberOfGuests()} people</h2>
                         <div class="spacing-x-small d-md-none"></div>
-                        <a id="backBtn" class="btn btn-light btn-primary-color"><i class="fas fa-plus"></i> Go back and edit dinner</a>
+                        <a id="backBtn" class="btn btn-light btn-primary-color"><i class="fas fa-arrow-left"></i> Go back and edit dinner</a>
                     </div>
                 </div>
             </div>
