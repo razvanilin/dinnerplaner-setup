@@ -4,6 +4,7 @@ class SideBarController {
         this.model = model;
 
         this.model.menuObs.addObserver(this);
+        this.model.numberOfGuestsObs.addObserver(this);
 
     }
 
@@ -14,8 +15,9 @@ class SideBarController {
 
     update(payload) {
         if (payload.message == "element removed") {
-            this.addEventListenersList();
+            
         }
+        this.addEventListenersList();
         
     }
 
