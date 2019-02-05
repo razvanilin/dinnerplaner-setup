@@ -10,7 +10,7 @@ $(function () {
 	var overviewView = new OverviewView($("#page-content"), model);
 	overviewController = new OverviewController(overviewView, model);
 
-	mainController.renderView();
+	homeController.renderView();
 });
 
 function navigate(viewName, dishId) {

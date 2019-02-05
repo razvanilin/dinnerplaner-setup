@@ -14,11 +14,7 @@ class SideBarController {
     }
 
     update(payload) {
-        if (payload.message == "element removed") {
-            
-        }
-        this.addEventListenersList();
-        
+        this.addEventListeners();   
     }
 
     addEventListeners() {
