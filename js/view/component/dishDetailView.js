@@ -88,7 +88,7 @@ class DishDetailView {
 		this.model.singleDish.ingredients.map((ingredient, index) => {
 			ingredientItems = ingredientItems +  /* template */ `
 				<div class="row align-items-center">
-					<div class="col-5 col-sm-4">${ingredient.quantity * this.model.getNumberOfGuests() + ' ' + ingredient.unit}</div>
+					<div class="col-5 col-sm-4">${round(ingredient.quantity * this.model.getNumberOfGuests(), 1) + ' ' + ingredient.unit}</div>
 					<div class="col-7 col-sm-8">${ingredient.name}</div>
 				</div>
 				<div class="spacing-x-small"></div>
@@ -97,7 +97,7 @@ class DishDetailView {
 		
 		this.container.find("#ingredientList").html(ingredientItems);
 		this.container.find("#numberOfPersons").html(this.model.getNumberOfGuests());
-		this.container.find("#totalPrice").html('<b>' + this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests() + ' SEK</b> / Person');
+		this.container.find("#totalPrice").html('<b>' + round(this.model.getDishPrice(this.model.singleDish) * this.model.getNumberOfGuests(), 2) + ' SEK</b> / Person');
 	}
 
 	renderError() {

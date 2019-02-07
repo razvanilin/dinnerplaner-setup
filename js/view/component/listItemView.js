@@ -11,7 +11,7 @@ class ListItemView {
 			<span class="col ellipsis" style="padding-right: 15px;">
 				<a class="removeBtn" id=${this.id}><i class="fas fa-times" style="padding-right: 5px;"></i></a> 
 				${this.name}</span>
-			<span class="col-auto">${this.numberOfGuests} x ${this.price}</span>
+			<span class="col-auto">${this.numberOfGuests} x ${round(this.price, 2)}</span>
 		</div>
 		`;
 	}

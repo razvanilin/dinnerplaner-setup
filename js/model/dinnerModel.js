@@ -93,7 +93,7 @@ class DinnerModel {
 			price += dish.price;
 		})
 		
-		return price * this.numberOfGuests;
+		return round(price * this.numberOfGuests, 2);
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -110,7 +110,6 @@ class DinnerModel {
 			return dish.id != id;
 		})
 		this.menuObs.updateValue(this.menu, 'element removed');
-		
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -119,6 +118,8 @@ class DinnerModel {
 	getAllDishes(limit = 9) {
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
+
+		console.log('networkService');
 
 		if (type || filter) {
 			networkService.getDishesByFilter(filter, type, limit)
@@ -149,6 +150,8 @@ class DinnerModel {
 
 	getMoreDishes(limit = 9) {
 		var offset = this.dishes.length;
+
+		console.log('networkService');
 		
 		networkService.getMoreDishes(offset, limit)
 			.then(data => {
@@ -166,6 +169,7 @@ class DinnerModel {
 
 	//function that returns a dish of specific ID
 	getDish(id) {
+		console.log('networkService');
 		networkService.getDish(id)
 			.then(data => {
 				console.log(data);
@@ -187,19 +191,14 @@ class DinnerModel {
 			'type': dish.dishTypes ? dish.dishTypes : null,
 			'image': dish.image && baseUri ? baseUri + dish.image : dish.image,
 			'description': dish.instructions ? dish.instructions : null,
-			'price': dish.pricePerServing ? this.round(dish.pricePerServing, 0) : null,
+			'price': dish.pricePerServing ? dish.pricePerServing : null,
 			'ingredients': dish.extendedIngredients ? dish.extendedIngredients.map(ingredient => {
 					return {
 						'name': ingredient.originalName,
-						'quantity': this.round(ingredient.amount, 1),
+						'quantity': ingredient.amount,
 						'unit': ingredient.unit,
 					}
 				}) : null,
 		}
-	}
-	
-	round(value, precision) {
-		var multiplier = Math.pow(10, precision || 0);
-		return Math.round(value * multiplier) / multiplier;
 	}
 }
