@@ -12,4 +12,8 @@ What's in the project
 * [js/app.js](https://github.com/kth-csc-iprog/dinnerplanner-html/blob/master/js/app.js) - this is the overall code of the application. It is responsible for initial setup of the app (when the page loads for the first time). 
 * [images/](https://github.com/kth-csc-iprog/dinnerplanner-html/tree/master/images) - folder contains some pictures you can use for your dishes
 
+
+Installation
+-----
+
 * [js/config_template.js](https://github.com/kth-csc-iprog/dinnerplanner-html/blob/master/js/config_template.js) - rename this file config.js and add the SPOONACULAR_API_KEY
