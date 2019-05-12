@@ -114,7 +114,7 @@ class DinnerModel {
   }
 }
 
-export default DinnerModel;
+// export default DinnerModel;
 
 // the dishes constant contains an array of all the
 // dishes in the database. Each dish has id, name, type,
