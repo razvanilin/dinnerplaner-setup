@@ -14,6 +14,7 @@
   <body>
 	<div class="container">
 		<h1>Dinner planner</h1>
+    <h2 id="loader">Loading...</h2>
     <div id="mocha"></div>
 	</div>
 
@@ -23,6 +24,7 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
     <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chai-http@4.3.0/dist/chai-http.js"></script>
     <script src="https://unpkg.com/mocha/mocha.js"></script>
 
     <script class="mocha-init">
@@ -33,6 +35,7 @@
     </script>
 
 	   <!-- The application JavaScript code -->
+    <script src="src/settings.js"></script>
     <script src="src/model/dinnerModel.js"></script>
     <script src="src/app.js"></script>
     <script src="src/model/dinnerModel.test.js"></script>
