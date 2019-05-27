@@ -3,15 +3,13 @@
 ## Setup the project
 
 ```
-npm install
+git clone https://github.com/razvanilin/dinnerplaner-setup.git
 ```
 
 ## Test the project
 
-```
-npm test
-```
+Open `index.html` in the browser and tests should run automatically
 
 ## Run the project
 
-_TODO_
+Open `index.html`
