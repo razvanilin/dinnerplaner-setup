@@ -13,7 +13,7 @@ class OverviewView {
             </div>
             <div id="subHeaderView"></div>
             <div class="spacing"></div>
-            <div class="container">
+            <div id="overviewView" class="container">
                 <div class="row justify-content-center">
                     ${this.getDishesOnMenu(isPrint)}
                     ${!isPrint ? this.getTotalPrice() : ''}

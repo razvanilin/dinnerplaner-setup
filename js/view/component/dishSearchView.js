@@ -6,7 +6,7 @@ class DishSearchView {
 		this.selectInput = null;
 		this.searchBtn = null;
 		this.showMoreBtn = null;
-		
+
 		this.model.getAllDishes()
 		this.model.dishesObs.addObserver(this);
 	}
@@ -43,7 +43,7 @@ class DishSearchView {
 					<div id="dishItems" class="row justify-content-center justify-content-md-start dishes">
 						<div class="col-md-12 text-center">
 							<div class="spinner-border m-5" role="status">
-								<span class="sr-only">Loading...</span>
+								<span class="sr-only" id="loader">Loading...</span>
 							</div>
 						</div>
 					</div>
@@ -55,7 +55,7 @@ class DishSearchView {
 
 		this.afterRender();
 	}
-	
+
 	renderDishItems() {
 		var dishItems = '';
 		if (this.model.dishes.length) {
@@ -63,7 +63,7 @@ class DishSearchView {
 				const dishItem = new DishItemView(dish);
 				dishItems = dishItems + dishItem.render();
 			});
-			
+
 			dishItems = dishItems + /* template */`
 					<div class="col-12 text-center">
 						<div class="spacing-small"></div>
@@ -91,16 +91,16 @@ class DishSearchView {
 			typeItems += /* template */ `
 				<option value="${type}" ${this.model.getSearchType() == type ? 'selected' : ''}>${type == "" ? "All" : type}</option>
 			`
-			
+
 		});
 		return typeItems;
-		
+
 	}
 
 	afterRender() {
 		this.textInput = this.container.find("#textInput");
 		this.selectInput = this.container.find("#selectInput");
 		this.searchBtn = this.container.find("#searchBtn");
-		this.showMoreBtn = this.container.find("#showMoreBtn");		
+		this.showMoreBtn = this.container.find("#showMoreBtn");
 	}
 }

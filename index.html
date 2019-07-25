@@ -6,9 +6,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Dinner planner</title>
 
+
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css">
-	
+
+	<link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+
 	<!-- FontAwesome -->
 	<link rel="stylesheet" href="css/all.min.css">
 
@@ -20,6 +23,24 @@
 <body>
 
 	<div id="page-content"></div>
+
+	<div>
+		<a class="btn btn-primary" data-toggle="collapse" href="#mocha" role="button" aria-expanded="false" aria-controls="mocha">
+	    Open Test Details
+	  </a>
+		<div class="collapse" id="mocha"></div>
+	</div>
+
+	<script src="https://unpkg.com/chai/chai.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/chai-http@4.3.0/dist/chai-http.js"></script>
+	<script src="https://unpkg.com/mocha/mocha.js"></script>
+
+	<script class="mocha-init">
+		mocha.setup({
+			ui: 'bdd'
+		});
+		mocha.checkLeaks();
+	</script>
 
 	<!-- jQuery -->
 	<script src="js/extensions/jquery-3.3.1.min.js"></script>
@@ -60,6 +81,13 @@
 	<script src="js/controller/dishDetailController.js"></script>
 	<script src="js/controller/overviewController.js"></script>
 	<script src="js/controller/subHeaderController.js"></script>
+
+	<!-- tests -->
+	<script src="js/app.test.js"></script>
+
+	<script class="mocha-exec">
+		mocha.run();
+	</script>
 
 </body>
 </html>

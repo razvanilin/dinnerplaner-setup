@@ -1,4 +1,4 @@
-const BASE_URL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com";
+const BASE_URL = "https://api.spoonacular.com";
 const requestService = new RequestService();
 
 class NetworkService {
@@ -6,7 +6,7 @@ class NetworkService {
     var url = `${BASE_URL}/recipes/${id}/information`;
     return requestService.getRequest(url, API_KEY);
   }
-  
+
   getDishes(limit) {
     var url = `${BASE_URL}/recipes/search?number=${limit}`;
     return requestService.getRequest(url, API_KEY);

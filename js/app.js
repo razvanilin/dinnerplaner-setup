@@ -1,6 +1,6 @@
 $(function () {
 	var model = new DinnerModel();
-	
+
 	var homeView = new HomeView($("#page-content"));
 	homeController = new HomeController(homeView);
 
@@ -17,18 +17,23 @@ function navigate(viewName, dishId) {
 	switch (viewName) {
 		case 'home':
 			homeController.renderView();
+			console.log("1");
 			break;
 		case 'select':
 			mainController.renderView();
+			console.log("2");
 			break;
 		case 'select-dish':
+			console.log("3");
 			mainController.renderView(dishId);
 			break;
 		case 'overview':
 			overviewController.renderView(false);
+			console.log("4");
 			$("#mobile-bar").html();
 			break;
 		case 'print':
+			console.log("5");
 			overviewController.renderView(true);
 			break;
 	}
