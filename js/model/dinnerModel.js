@@ -24,7 +24,7 @@ class DinnerModel {
 			"sauce",
 			"drink"
 		]
-		
+
 		this.showErrorMessageObs = new Observable();
 		this.numberOfGuestsObs = new Observable();
 		this.dishesObs = new Observable();
@@ -35,12 +35,12 @@ class DinnerModel {
 	setSearchString(string) {
 		this.searchString = string;
 	}
-	
+
 	getSearchString() {
 		return this.searchString;
 	}
 
-	setSearchType(type) {		
+	setSearchType(type) {
 		this.searchType = type;
 	}
 
@@ -52,12 +52,12 @@ class DinnerModel {
 		this.numberOfGuests = num;
 		this.numberOfGuestsObs.updateValue(num);
 	}
-	
+
 	getNumberOfGuests() {
 		return this.numberOfGuests;
 	}
 
-	//Returns the dish that is on the menu for selected type 
+	//Returns the dish that is on the menu for selected type
 	getSelectedDish(type) {
 		return this.menu.filter(function (dish) {
 			return dish.type == type;
@@ -65,7 +65,7 @@ class DinnerModel {
 	}
 
 	//Returns all the dishes on the menu.
-	getFullMenu() {		
+	getFullMenu() {
 		return this.menu;
 	}
 
@@ -92,13 +92,13 @@ class DinnerModel {
 		this.menu.forEach(function (dish) {
 			price += dish.price;
 		})
-		
+
 		return round(price * this.numberOfGuests, 2);
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
-	addDishToMenu() { 
+	addDishToMenu() {
 		//this.menu.push(this.getDish(id));
 		this.menu.push(this.singleDish);
 		this.menuObs.updateValue(this.menu, 'menu updated');
@@ -118,8 +118,9 @@ class DinnerModel {
 	getAllDishes(limit = 9) {
 		var type = this.searchType.toLowerCase();
 		var filter = this.searchString.toLowerCase();
+		console.log("search string is", this.searchString);
 
-		console.log('networkService');
+		console.log('networkServicing', filter);
 
 		if (type || filter) {
 			networkService.getDishesByFilter(filter, type, limit)
@@ -152,13 +153,13 @@ class DinnerModel {
 		var offset = this.dishes.length;
 
 		console.log('networkService');
-		
+
 		networkService.getMoreDishes(offset, limit)
 			.then(data => {
 				this.dishes = this.dishes.concat(data.results.map(dish => this.mapDish(data.baseUri, dish)));
 				this.dishesObs.updateValue(this.menu);
 				this.showErrorMessage = false;
-				
+
 			}).catch(error => {
 				console.log('Error: ' + error);
 				this.showErrorMessage = true;
@@ -184,7 +185,7 @@ class DinnerModel {
 			});
 	}
 
-	mapDish(baseUri, dish) {		
+	mapDish(baseUri, dish) {
 		return {
 			'id': dish.id ? dish.id : null,
 			'name': dish.title ? dish.title : null,

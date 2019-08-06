@@ -28,7 +28,9 @@
 		<a class="btn btn-primary" data-toggle="collapse" href="#mocha" role="button" aria-expanded="false" aria-controls="mocha">
 	    Open Test Details
 	  </a>
-		<div class="collapse" id="mocha"></div>
+		<div class="collapse" id="mocha">
+			<button onclick="runTests()">Run tests</button>
+		</div>
 	</div>
 
 	<script src="https://unpkg.com/chai/chai.js"></script>
@@ -86,7 +88,9 @@
 	<script src="js/app.test.js"></script>
 
 	<script class="mocha-exec">
-		mocha.run();
+		function runTests() {
+			mocha.run();
+		}
 	</script>
 
 </body>

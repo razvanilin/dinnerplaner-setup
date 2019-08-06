@@ -7,6 +7,7 @@ class DishSearchController {
     }
 
     renderView() {
+        console.log("when rendering the view", this.model.getSearchString());
         this.view.render();
         this.addEventListeners();
     }
@@ -18,10 +19,9 @@ class DishSearchController {
     addEventListeners() {
         this.view.searchBtn.on("click", () => {
             this.search();
-           
         });
 
-        this.view.textInput.on("keyup", (e) => {
+        this.view.dishSearchInput.on("keyup", (e) => {
             e.preventDefault();
 
             if (e.keyCode == 13) {
@@ -37,7 +37,7 @@ class DishSearchController {
     }
 
     search() {
-        this.model.setSearchString(this.view.textInput.val());
+        this.model.setSearchString(this.view.dishSearchInput.val());
         this.model.setSearchType(this.view.selectInput.val());
 
         navigate('select');

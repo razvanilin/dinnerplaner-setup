@@ -10,13 +10,12 @@ class MainController{
         this.model.showErrorMessageObs.addObserver(this);
     }
     update(payload) {
-        console.log('showErrorBar');
         this.renderErrorBar();
     }
     renderView(dishId){
         this.view.render(dishId);
         this.view.afterRender();
-        
+
         this.renderMobileBar();
         this.renderSideBar();
 

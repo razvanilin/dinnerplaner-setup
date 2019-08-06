@@ -1,4 +1,4 @@
-$(function () {
+window.onload = function () {
 	var model = new DinnerModel();
 
 	var homeView = new HomeView($("#page-content"));
@@ -11,7 +11,7 @@ $(function () {
 	overviewController = new OverviewController(overviewView, model);
 
 	homeController.renderView();
-});
+}
 
 function navigate(viewName, dishId) {
 	switch (viewName) {

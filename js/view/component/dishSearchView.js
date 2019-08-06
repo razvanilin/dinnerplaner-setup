@@ -2,7 +2,7 @@ class DishSearchView {
 	constructor(container, model) {
 		this.container = container;
 		this.model = model;
-		this.textInput = null;
+		this.dishSearchInput = null;
 		this.selectInput = null;
 		this.searchBtn = null;
 		this.showMoreBtn = null;
@@ -25,7 +25,7 @@ class DishSearchView {
 				<h2>${!this.model.getFullMenu().length ? 'Find a dish' : 'Add another one'}</h2>
 				<div class="spacing-x-small"></div>
 				<div class="d-flex flex-column flex-md-row align-items-start align-items-md-center">
-					<input class="form-control" style="max-width: 300px;" type="text" name="" id="textInput" placeholder="Enter key words" value="${this.model.getSearchString()}">
+					<input class="form-control" style="max-width: 300px;" type="text" name="" id="dishSearchInput" placeholder="Enter key words" value="${this.model.getSearchString()}">
 					<div class="h-spacing d-none d-md-block"></div>
 					<div class="spacing-x-small d-md-none"></div>
 					<select class="form-control" name="" style="max-width: 200px;" id="selectInput">
@@ -98,7 +98,7 @@ class DishSearchView {
 	}
 
 	afterRender() {
-		this.textInput = this.container.find("#textInput");
+		this.dishSearchInput = this.container.find("#dishSearchInput");
 		this.selectInput = this.container.find("#selectInput");
 		this.searchBtn = this.container.find("#searchBtn");
 		this.showMoreBtn = this.container.find("#showMoreBtn");
